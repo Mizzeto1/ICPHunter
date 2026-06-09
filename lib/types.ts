@@ -43,33 +43,39 @@ export interface ApolloContact {
 }
 
 export type ContactTier = "decision_maker" | "champion" | "evaluator" | "blocker";
+export type DealRole = "economic_buyer" | "champion" | "evaluator" | "blocker";
 
-export interface CategorizedContact extends ApolloContact {
-  tier: ContactTier;
-  reasoning: string;
-}
-
-export interface SuggestedTitle {
+export interface ContactAnalysis {
+  name: string;
   title: string;
+  dealRole: DealRole;
   tier: ContactTier;
-  reasoning: string;
+  whyTheyMatter: string;
+  approachAngle: string;
 }
 
-export interface FitDimension {
-  dimension: string;
+export interface FitScoreDimension {
   score: number;
-  reasoning: string;
+  reason: string;
+}
+
+export interface FitScore {
+  aiReadiness: FitScoreDimension;
+  buyingUrgency: FitScoreDimension;
+  whiteSpace: FitScoreDimension;
+  accessibility: FitScoreDimension;
+  strategicValue: FitScoreDimension;
 }
 
 export interface AccountPlan {
-  executive_summary: string;
-  pain_product_fit: string;
-  competitive_threats: string;
-  timing_urgency: string;
-  deal_strategy: string;
-  discovery_questions: string[];
-  roi_framework: string;
-  first_touch_email: string;
+  executiveSummary: string;
+  painToProductFit: string;
+  competitiveThreats: string;
+  timingUrgency: string;
+  dealStrategy: string;
+  discoveryQuestions: string;
+  roiFramework: string;
+  firstTouchEmail: string;
 }
 
 export interface AISignals {
@@ -83,14 +89,13 @@ export interface AISignals {
 
 export interface ResearchResult {
   organization: ApolloOrganization;
-  contacts: CategorizedContact[];
-  suggested_titles: SuggestedTitle[];
+  contactAnalysis: ContactAnalysis[];
   signals: AISignals;
   plan: AccountPlan;
-  fit_score: FitDimension[];
-  overall_score: number;
-  generated_at: string;
-  target_company: string;
+  fitScore: FitScore;
+  overallScore: number;
+  generatedAt: string;
+  targetCompany: string;
 }
 
 export interface PrebuiltAccount {

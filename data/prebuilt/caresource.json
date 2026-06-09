@@ -16,63 +16,56 @@
     "state": "Ohio",
     "country": "United States"
   },
-  "contacts": [
+  "contactAnalysis": [
     {
       "name": "Rick Van Hoose",
       "title": "Chief Information Officer",
-      "linkedinUrl": "https://www.linkedin.com/in/rickvanhoose/",
-      "seniority": "c_suite",
-      "department": "Information Technology",
+      "dealRole": "economic_buyer",
       "tier": "decision_maker",
-      "reasoning": "CIO with direct authority over technology investment decisions and IT strategy."
+      "whyTheyMatter": "CIO with direct authority over technology investment decisions and IT strategy.",
+      "approachAngle": "Present business case after pilot results. Focus on clear ROI tied to state expansion and member retention during Medicaid unwinding."
     },
     {
       "name": "Amanda Dix",
       "title": "VP, Data & Analytics",
-      "linkedinUrl": "https://www.linkedin.com/in/amandadix/",
-      "seniority": "vp",
-      "department": "Data & Analytics",
+      "dealRole": "champion",
       "tier": "champion",
-      "reasoning": "Owns data strategy and analytics \u2014 ideal champion for AI/ML initiatives that enhance their data capabilities."
+      "whyTheyMatter": "Owns data strategy and analytics — ideal champion for AI/ML initiatives that enhance their data capabilities.",
+      "approachAngle": "First touch target. Lead with SDoH analytics use case — how AI can improve care coordination for highest-cost Medicaid members."
     },
     {
       "name": "James Wilson",
       "title": "Director, Innovation & Digital Health",
-      "linkedinUrl": "https://www.linkedin.com/in/jameswilson/",
-      "seniority": "director",
-      "department": "Innovation",
+      "dealRole": "champion",
       "tier": "champion",
-      "reasoning": "Innovation leader actively seeking new technologies \u2014 natural internal advocate for AI solutions."
+      "whyTheyMatter": "Innovation leader actively seeking new technologies — natural internal advocate for AI solutions.",
+      "approachAngle": "Second entry point. Frame around digital-first member experience and how AI scales personalization across new state markets."
     },
     {
       "name": "Sarah Kumar",
       "title": "Director, Enterprise Architecture",
-      "linkedinUrl": "https://www.linkedin.com/in/sarahkumar/",
-      "seniority": "director",
-      "department": "Information Technology",
+      "dealRole": "evaluator",
       "tier": "evaluator",
-      "reasoning": "Technical architect who will assess platform integration, security, and scalability requirements."
+      "whyTheyMatter": "Technical architect who will assess platform integration, security, and scalability requirements.",
+      "approachAngle": "Provide detailed Azure and Databricks integration documentation. She needs to see clean technical fit with existing infrastructure."
     },
     {
       "name": "Patricia Moore",
       "title": "Chief Medical Officer",
-      "linkedinUrl": "https://www.linkedin.com/in/patriciamoore/",
-      "seniority": "c_suite",
-      "department": "Clinical",
+      "dealRole": "evaluator",
       "tier": "evaluator",
-      "reasoning": "CMO will evaluate clinical AI applications and ensure alignment with quality and outcomes goals."
+      "whyTheyMatter": "CMO will evaluate clinical AI applications and ensure alignment with quality and outcomes goals.",
+      "approachAngle": "Build clinical credibility with outcomes data and HEDIS score improvement evidence from similar Medicaid plans."
     },
     {
       "name": "Thomas Reed",
       "title": "VP, Compliance & Regulatory Affairs",
-      "linkedinUrl": "https://www.linkedin.com/in/thomasreed/",
-      "seniority": "vp",
-      "department": "Compliance",
+      "dealRole": "blocker",
       "tier": "blocker",
-      "reasoning": "Compliance VP will scrutinize AI for regulatory risk, especially in Medicaid \u2014 must be engaged early."
+      "whyTheyMatter": "Compliance VP will scrutinize AI for regulatory risk, especially in Medicaid — must be engaged early.",
+      "approachAngle": "Proactively share Medicaid-specific compliance documentation. Address state-by-state regulatory variation for AI in care management."
     }
   ],
-  "suggested_titles": [],
   "signals": {
     "orgType": "payer",
     "aiStrategy": "CareSource is investing in predictive analytics for social determinants of health (SDoH) interventions and has launched an AI-powered care coordination platform for complex Medicaid populations. They are exploring generative AI for member communication and health literacy, and building ML models for claims fraud detection.",
@@ -102,52 +95,23 @@
     ]
   },
   "plan": {
-    "executive_summary": "CareSource is a high-value mid-market target with characteristics that make it ideal for a rapid sales cycle. As a $14B nonprofit Medicaid managed care plan serving 2.4M members, they combine meaningful scale with the agility to adopt new technology faster than larger competitors.\n\nTheir investment in SDoH analytics, digital-first member experience, and cloud migration signals readiness for AI adoption. The nonprofit mission creates a values-aligned selling opportunity \u2014 frame AI as a tool to better serve vulnerable Medicaid populations, not just reduce costs.\n\nCareSource's expansion into new states creates immediate need for scalable technology solutions that can handle growing member volumes without proportional headcount increases.",
-    "pain_product_fit": "1. SDoH DATA INTEGRATION: CareSource's Medicaid population has complex social needs. AI can synthesize SDoH data from multiple sources to create actionable member profiles and intervention recommendations.\n\n2. MEMBER COMMUNICATION: Medicaid members often have lower health literacy and diverse language needs. AI-powered personalized communication can improve engagement and health outcomes.\n\n3. CARE COORDINATION COMPLEXITY: Coordinating care for complex Medicaid populations across providers requires intelligent automation \u2014 AI can prioritize outreach, predict gaps, and optimize case manager workflows.\n\n4. CLAIMS ACCURACY: As a mid-size payer growing rapidly, claims processing accuracy and speed directly impact margins. AI automation reduces errors and accelerates adjudication.\n\n5. STATE EXPANSION: Each new state brings new regulatory requirements, provider networks, and member demographics. AI can accelerate market entry by rapidly analyzing new populations.",
-    "competitive_threats": "- DATABRICKS: Already embedded as their analytics platform \u2014 may try to upsell AI/ML capabilities\n- INOVALON: Strong healthcare analytics vendor with Medicaid expertise\n- NAVU HEALTH: Focused on Medicaid population health with AI\n- INTERNAL BUILD: Growing data science team may prefer building on existing Databricks platform\n- CONSULTING: Deloitte and PwC both have Medicaid-focused practices competing for this work",
-    "timing_urgency": "1. STATE EXPANSION: CareSource is actively expanding into new states \u2014 technology decisions are being made NOW for new market infrastructure.\n2. MEDICAID REDETERMINATION: Ongoing Medicaid unwinding requires sophisticated member outreach to retain eligible members.\n3. CLOUD MIGRATION: Active migration to Azure creates a natural window to adopt new cloud-native AI services.\n4. COMPETITIVE PRESSURE: Larger payers like Centene and Molina are investing heavily in AI \u2014 CareSource must keep pace.\n5. FISCAL YEAR PLANNING: Nonprofit budget cycles typically align with calendar year \u2014 Q1 is prime selling season.",
-    "deal_strategy": "APPROACH: Lead with mission alignment. CareSource is a nonprofit serving vulnerable populations \u2014 lead with outcomes, not just efficiency.\n\nPHASE 1 \u2014 Connect through Amanda Dix (VP Data & Analytics) or James Wilson (Director Innovation). These roles are actively seeking new capabilities.\n\nPHASE 2 \u2014 Offer a complimentary SDoH use case assessment. Show how AI can improve care coordination for their highest-cost Medicaid members.\n\nPHASE 3 \u2014 Build clinical credibility with CMO Patricia Moore. Demonstrate clinical validation and outcomes data.\n\nPHASE 4 \u2014 Present business case to CIO Rick Van Hoose with clear ROI tied to their strategic priorities.\n\nPHASE 5 \u2014 Pilot in one state market, expand to others after proving value.",
-    "discovery_questions": [
-      "How are you currently identifying and addressing social determinants of health for your Medicaid members?",
-      "What's your biggest technology challenge as you expand into new state markets?",
-      "How do you measure the effectiveness of your care coordination programs today?",
-      "What percentage of member outreach actually reaches the intended recipient and drives action?",
-      "Where are you in your cloud migration journey, and what workloads are you prioritizing?",
-      "How does your data science team currently build and deploy predictive models?",
-      "What's the process for evaluating new technology vendors from a compliance perspective?",
-      "How is Medicaid redetermination affecting your member retention and outreach strategy?"
-    ],
-    "roi_framework": "COST SAVINGS:\n- Care coordination automation: Reduce case manager caseload by 30%, saving $8-12M annually in labor costs\n- Claims accuracy: 2% improvement in first-pass claims accuracy on $14B portfolio = $280M in reduced rework and appeals\n- Member retention: AI-powered outreach during redetermination retaining additional 5% of members = ~$700M in retained revenue\n\nOUTCOMES VALUE:\n- SDoH-informed interventions reducing ER utilization by 10% for targeted members\n- Improved HEDIS scores driving quality bonus payments\n- Faster state market entry: reduce time-to-operational by 3-6 months per new state\n\nPILOT: 60-day pilot focused on SDoH-powered care coordination in Ohio Medicaid population. Target: 20% improvement in member engagement rates.",
-    "first_touch_email": "Subject: Improving SDoH Outcomes for CareSource's 2.4M Members\n\nHi Amanda,\n\nI noticed CareSource's investment in SDoH data integration and predictive analytics for your Medicaid populations. Scaling personalized interventions across 2.4M members while expanding to new states is a challenge few organizations face at this level.\n\nWe've helped similar Medicaid plans increase member engagement by 35% and reduce care gaps through AI-powered SDoH analysis. I'd love to show you what that looks like for CareSource specifically.\n\n20 minutes this week?\n\nBest,\nYuvraj"
+    "executiveSummary": "CareSource is a high-value mid-market target that combines meaningful scale ($14B, 2.4M members) with the agility to adopt new technology faster than larger competitors. Their SDoH analytics investment, digital-first member experience, and cloud migration signal readiness for AI adoption. The nonprofit mission creates a values-aligned selling opportunity — frame AI as a tool to better serve vulnerable Medicaid populations. State expansion creates immediate need for scalable technology.",
+    "painToProductFit": "1. SDoH DATA INTEGRATION: Medicaid populations have complex social needs — AI can synthesize SDoH data from multiple sources to create actionable intervention recommendations.\n2. MEMBER COMMUNICATION: Lower health literacy and diverse language needs in Medicaid populations — AI-powered personalized communication improves engagement.\n3. CARE COORDINATION: Complex Medicaid populations require intelligent automation to prioritize outreach, predict care gaps, and optimize case manager workflows.\n4. STATE EXPANSION: Each new state brings new regulatory requirements, provider networks, and demographics — AI accelerates market entry.",
+    "competitiveThreats": "DATABRICKS: Already embedded as analytics platform — may upsell AI/ML capabilities. INOVALON: Strong healthcare analytics with Medicaid expertise. NAVU HEALTH: Focused on Medicaid population health with AI. INTERNAL BUILD: Growing data science team may prefer building on existing Databricks platform. CONSULTING: Deloitte and PwC have Medicaid-focused practices competing for this work.",
+    "timingUrgency": "Active state expansion means technology decisions being made NOW for new market infrastructure. Medicaid redetermination requires sophisticated member outreach to retain eligible members. Cloud migration to Azure creates natural window for cloud-native AI. Larger competitors (Centene, Molina) investing heavily in AI — CareSource must keep pace.",
+    "dealStrategy": "Mission-aligned mid-market sale over 2-4 months. Phase 1: Connect through Amanda Dix (VP Data & Analytics) with SDoH use case. Phase 2: Complimentary SDoH assessment showing AI impact on highest-cost members. Phase 3: Clinical credibility with CMO Patricia Moore using outcomes data. Phase 4: Business case to CIO Rick Van Hoose tied to state expansion ROI. Phase 5: Pilot in Ohio Medicaid market. Estimated deal size: $200K-500K initial, $2M+ enterprise. Risks: nonprofit price sensitivity, Databricks incumbency.",
+    "discoveryQuestions": "1. How are you currently identifying and addressing social determinants of health for your Medicaid members?\n2. What's your biggest technology challenge as you expand into new state markets?\n3. How do you measure the effectiveness of your care coordination programs today?\n4. What percentage of member outreach actually reaches the intended recipient and drives action?\n5. Where are you in your cloud migration journey, and what workloads are you prioritizing?",
+    "roiFramework": "Care coordination automation: Reduce case manager caseload by 30% = $8-12M annually in labor costs. Claims accuracy: 2% improvement on $14B portfolio = $280M in reduced rework. Member retention: AI outreach during redetermination retaining additional 5% = ~$700M retained revenue. SDoH interventions: 10% reduction in ER utilization for targeted members. PILOT: 60-day pilot focused on SDoH-powered care coordination in Ohio Medicaid, target 20% improvement in engagement rates.",
+    "firstTouchEmail": "Subject: Improving SDoH Outcomes for CareSource's 2.4M Members\n\nHi Amanda,\n\nScaling personalized SDoH interventions across 2.4M members while expanding to new states is a challenge few organizations face. We've helped similar Medicaid plans increase member engagement 35% through AI-powered analysis.\n\n20 minutes to show what that looks like for CareSource?\n\nBest,\nYuvraj"
   },
-  "fit_score": [
-    {
-      "dimension": "Strategic Alignment",
-      "score": 8,
-      "reasoning": "Active investment in analytics, SDoH, and digital health aligns well with AI product capabilities."
-    },
-    {
-      "dimension": "Budget Capacity",
-      "score": 7,
-      "reasoning": "$14B revenue nonprofit \u2014 meaningful budget but more price-sensitive than for-profit peers."
-    },
-    {
-      "dimension": "Technical Readiness",
-      "score": 7,
-      "reasoning": "Databricks and Azure foundation is solid; growing data team can support integration."
-    },
-    {
-      "dimension": "Urgency / Timing",
-      "score": 8,
-      "reasoning": "State expansion, Medicaid unwinding, and cloud migration create converging urgency."
-    },
-    {
-      "dimension": "Champion Access",
-      "score": 8,
-      "reasoning": "VP Data & Analytics and Director of Innovation are accessible, mission-driven entry points."
-    }
-  ],
-  "overall_score": 8,
-  "generated_at": "2025-01-15T00:00:00Z",
-  "target_company": "openai"
+  "fitScore": {
+    "aiReadiness": { "score": 3, "reason": "Databricks and Azure foundation is solid; growing data team can support integration but not yet mature." },
+    "buyingUrgency": { "score": 4, "reason": "State expansion, Medicaid unwinding, and cloud migration create converging urgency to adopt AI now." },
+    "whiteSpace": { "score": 4, "reason": "Mid-market Medicaid space has fewer AI incumbents — less competitive than enterprise payer market." },
+    "accessibility": { "score": 4, "reason": "VP Data & Analytics and Director of Innovation are accessible, mission-driven entry points." },
+    "strategicValue": { "score": 3, "reason": "Strong Medicaid-focused reference but smaller scale than Centene. Good logo for nonprofit and Medicaid verticals." }
+  },
+  "overallScore": 3.6,
+  "generatedAt": "2025-01-15T00:00:00Z",
+  "targetCompany": "openai"
 }

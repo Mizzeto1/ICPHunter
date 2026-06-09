@@ -1,25 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
 import { searchApolloCompany, searchApolloContacts } from "@/lib/apollo";
-import {
-  researchCompanySignals,
-  generateWithClaude,
-  parseJSON,
-} from "@/lib/claude";
-import {
-  buildSynthesisPrompt,
-  buildWebOnlyPlanPrompt,
-} from "@/lib/prompts";
+import { researchCompanySignals, synthesizePlan } from "@/lib/claude";
 import { getCompanyConfig } from "@/configs";
 import {
   ResearchResult,
   AISignals,
   AccountPlan,
-  FitDimension,
-  CategorizedContact,
-  SuggestedTitle,
+  ContactAnalysis,
+  FitScore,
   ApolloOrganization,
-  ApolloContact,
-  CompanyConfig,
 } from "@/lib/types";
 
 export const maxDuration = 60;
@@ -57,70 +46,37 @@ function emptyOrg(name: string): ApolloOrganization {
 
 function emptyPlan(): AccountPlan {
   return {
-    executive_summary: "Plan generation failed — please retry.",
-    pain_product_fit: "",
-    competitive_threats: "",
-    timing_urgency: "",
-    deal_strategy: "",
-    discovery_questions: [],
-    roi_framework: "",
-    first_touch_email: "",
+    executiveSummary: "Plan generation failed — please retry.",
+    painToProductFit: "",
+    competitiveThreats: "",
+    timingUrgency: "",
+    dealStrategy: "",
+    discoveryQuestions: "",
+    roiFramework: "",
+    firstTouchEmail: "",
   };
 }
 
-async function generateWebOnlyPlan(
-  companyName: string,
-  config: CompanyConfig
-): Promise<Response> {
-  let signals: AISignals;
-  try {
-    signals = await researchCompanySignals(companyName);
-  } catch {
-    signals = emptySignals();
-  }
-
-  const planRaw = await generateWithClaude(
-    buildWebOnlyPlanPrompt(companyName, JSON.stringify(signals), config)
-  );
-
-  let plan: AccountPlan;
-  let fitScore: FitDimension[];
-  let suggestedTitles: SuggestedTitle[];
-  try {
-    const parsed = parseJSON<{
-      suggested_titles: SuggestedTitle[];
-      plan: AccountPlan;
-      fit_score: FitDimension[];
-    }>(planRaw);
-    plan = parsed.plan;
-    fitScore = parsed.fit_score;
-    suggestedTitles = parsed.suggested_titles || [];
-  } catch {
-    plan = emptyPlan();
-    fitScore = [];
-    suggestedTitles = [];
-  }
-
-  const overallScore =
-    fitScore.length > 0
-      ? Math.round(
-          fitScore.reduce((sum, f) => sum + f.score, 0) / fitScore.length
-        )
-      : 0;
-
-  const result: ResearchResult = {
-    organization: emptyOrg(companyName),
-    contacts: [],
-    suggested_titles: suggestedTitles,
-    signals,
-    plan,
-    fit_score: fitScore,
-    overall_score: overallScore,
-    generated_at: new Date().toISOString(),
-    target_company: config.slug,
+function emptyFitScore(): FitScore {
+  return {
+    aiReadiness: { score: 0, reason: "Unable to assess" },
+    buyingUrgency: { score: 0, reason: "Unable to assess" },
+    whiteSpace: { score: 0, reason: "Unable to assess" },
+    accessibility: { score: 0, reason: "Unable to assess" },
+    strategicValue: { score: 0, reason: "Unable to assess" },
   };
+}
 
-  return NextResponse.json(result);
+function computeOverallScore(fitScore: FitScore): number {
+  const scores = [
+    fitScore.aiReadiness.score,
+    fitScore.buyingUrgency.score,
+    fitScore.whiteSpace.score,
+    fitScore.accessibility.score,
+    fitScore.strategicValue.score,
+  ];
+  const sum = scores.reduce((a, b) => a + b, 0);
+  return Math.round((sum / scores.length) * 10) / 10;
 }
 
 export async function POST(request: NextRequest) {
@@ -144,91 +100,61 @@ export async function POST(request: NextRequest) {
 
     // STEP 1: Find the company in Apollo (need the domain for contact search)
     const apolloCompany = await searchApolloCompany(company);
-    if (!apolloCompany?.domain) {
-      return generateWebOnlyPlan(company, config);
-    }
+    const org = apolloCompany?.domain ? apolloCompany : emptyOrg(company);
 
-    // STEP 2: Run in parallel — contacts by domain + web research signals
+    // STEP 2: Run in parallel — contacts (if we have domain) + web research signals
     const allTitles = [
       ...config.targetTitles.payer,
       ...config.targetTitles.provider,
     ];
 
     const [contacts, signals] = await Promise.all([
-      searchApolloContacts(apolloCompany.domain, allTitles),
+      org.domain
+        ? searchApolloContacts(org.domain, allTitles)
+        : Promise.resolve([]),
       researchCompanySignals(company).catch(() => emptySignals()),
     ]);
 
-    // STEP 3: Claude synthesizes everything in one call
-    const synthesisRaw = await generateWithClaude(
-      buildSynthesisPrompt(
-        apolloCompany,
-        contacts,
-        JSON.stringify(signals),
-        config
-      )
-    );
-
+    // STEP 3: Synthesize everything in one call
+    let contactAnalysis: ContactAnalysis[];
     let plan: AccountPlan;
-    let fitScore: FitDimension[];
-    let categorizedContacts: CategorizedContact[];
-    let suggestedTitles: SuggestedTitle[];
+    let fitScore: FitScore;
 
     try {
-      const parsed = parseJSON<{
-        contacts: { name: string; tier: string; reasoning: string }[];
-        suggested_titles: SuggestedTitle[];
-        plan: AccountPlan;
-        fit_score: FitDimension[];
-      }>(synthesisRaw);
-
-      plan = parsed.plan;
-      fitScore = parsed.fit_score;
-      suggestedTitles = parsed.suggested_titles || [];
-
-      const categoryMap = new Map(
-        (parsed.contacts || []).map((c) => [
-          c.name,
-          { tier: c.tier, reasoning: c.reasoning },
-        ])
-      );
-
-      categorizedContacts = contacts.map((contact: ApolloContact) => {
-        const cat = categoryMap.get(contact.name);
-        return {
-          ...contact,
-          tier: (cat?.tier as CategorizedContact["tier"]) || "evaluator",
-          reasoning: cat?.reasoning || "Categorization pending",
-        };
+      const synthesis = await synthesizePlan({
+        company: org,
+        contacts,
+        signals,
+        config,
       });
+
+      contactAnalysis = synthesis.contactAnalysis || [];
+      plan = {
+        executiveSummary: synthesis.executiveSummary || "",
+        painToProductFit: synthesis.painToProductFit || "",
+        competitiveThreats: synthesis.competitiveThreats || "",
+        timingUrgency: synthesis.timingUrgency || "",
+        dealStrategy: synthesis.dealStrategy || "",
+        discoveryQuestions: synthesis.discoveryQuestions || "",
+        roiFramework: synthesis.roiFramework || "",
+        firstTouchEmail: synthesis.firstTouchEmail || "",
+      };
+      fitScore = synthesis.fitScore || emptyFitScore();
     } catch {
+      contactAnalysis = [];
       plan = emptyPlan();
-      fitScore = [];
-      suggestedTitles = [];
-      categorizedContacts = contacts.map((c: ApolloContact) => ({
-        ...c,
-        tier: "evaluator" as const,
-        reasoning: "Auto-categorized — synthesis failed",
-      }));
+      fitScore = emptyFitScore();
     }
 
-    const overallScore =
-      fitScore.length > 0
-        ? Math.round(
-            fitScore.reduce((sum, f) => sum + f.score, 0) / fitScore.length
-          )
-        : 0;
-
     const result: ResearchResult = {
-      organization: apolloCompany,
-      contacts: categorizedContacts,
-      suggested_titles: suggestedTitles,
+      organization: org,
+      contactAnalysis,
       signals,
       plan,
-      fit_score: fitScore,
-      overall_score: overallScore,
-      generated_at: new Date().toISOString(),
-      target_company: configSlug,
+      fitScore,
+      overallScore: computeOverallScore(fitScore),
+      generatedAt: new Date().toISOString(),
+      targetCompany: configSlug,
     };
 
     return NextResponse.json(result);

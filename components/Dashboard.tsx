@@ -77,7 +77,7 @@ export default function Dashboard({ config }: DashboardProps) {
       for (const account of PREBUILT_ACCOUNTS) {
         try {
           const data = await import(`@/data/prebuilt/${account.slug}.json`);
-          scores[account.slug] = data.overall_score;
+          scores[account.slug] = data.overallScore;
         } catch {
           scores[account.slug] = 0;
         }
@@ -297,7 +297,7 @@ export default function Dashboard({ config }: DashboardProps) {
           <div className="space-y-6 animate-fade-in">
             <CompanyOverview org={result.organization} />
             <SignalsPanel signals={result.signals} />
-            <HierarchyMap contacts={result.contacts} suggestedTitles={result.suggested_titles || []} />
+            <HierarchyMap contacts={result.contactAnalysis} />
 
             {/* Account Plan */}
             <div className="rounded-xl border border-dark-700 bg-dark-900 p-6">
@@ -306,42 +306,42 @@ export default function Dashboard({ config }: DashboardProps) {
               </h3>
               <PlanSection
                 title="Executive Summary"
-                content={result.plan.executive_summary}
+                content={result.plan.executiveSummary}
                 defaultOpen={true}
               />
               <PlanSection
                 title="Pain → Product Fit"
-                content={result.plan.pain_product_fit}
+                content={result.plan.painToProductFit}
               />
               <PlanSection
                 title="Competitive Threats"
-                content={result.plan.competitive_threats}
+                content={result.plan.competitiveThreats}
               />
               <PlanSection
                 title="Timing & Urgency"
-                content={result.plan.timing_urgency}
+                content={result.plan.timingUrgency}
               />
               <PlanSection
                 title="Deal Strategy"
-                content={result.plan.deal_strategy}
+                content={result.plan.dealStrategy}
               />
               <PlanSection
                 title="Discovery Questions"
-                content={result.plan.discovery_questions}
+                content={result.plan.discoveryQuestions}
               />
               <PlanSection
                 title="ROI Framework"
-                content={result.plan.roi_framework}
+                content={result.plan.roiFramework}
               />
               <PlanSection
                 title="First Touch Email"
-                content={result.plan.first_touch_email}
+                content={result.plan.firstTouchEmail}
               />
             </div>
 
             <FitScore
-              dimensions={result.fit_score}
-              overallScore={result.overall_score}
+              fitScore={result.fitScore}
+              overallScore={result.overallScore}
             />
           </div>
         )}
