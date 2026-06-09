@@ -6,15 +6,15 @@ interface PersonCardProps {
   contact: ContactAnalysis;
 }
 
-const tierStyles: Record<string, { bg: string; text: string; label: string }> = {
-  decision_maker: {
-    bg: "bg-red-500/10 border-red-500/20",
-    text: "text-red-400",
-    label: "Decision Maker",
-  },
-  champion: {
+const dealRoleStyles: Record<string, { bg: string; text: string; label: string }> = {
+  economic_buyer: {
     bg: "bg-emerald-500/10 border-emerald-500/20",
     text: "text-emerald-400",
+    label: "Economic Buyer",
+  },
+  champion: {
+    bg: "bg-violet-500/10 border-violet-500/20",
+    text: "text-violet-400",
     label: "Champion",
   },
   evaluator: {
@@ -23,21 +23,14 @@ const tierStyles: Record<string, { bg: string; text: string; label: string }> = 
     label: "Evaluator",
   },
   blocker: {
-    bg: "bg-amber-500/10 border-amber-500/20",
-    text: "text-amber-400",
+    bg: "bg-red-500/10 border-red-500/20",
+    text: "text-red-400",
     label: "Blocker",
   },
 };
 
-const dealRoleLabels: Record<string, string> = {
-  economic_buyer: "Economic Buyer",
-  champion: "Champion",
-  evaluator: "Evaluator",
-  blocker: "Blocker",
-};
-
 export default function PersonCard({ contact }: PersonCardProps) {
-  const style = tierStyles[contact.tier] || tierStyles.evaluator;
+  const style = dealRoleStyles[contact.dealRole] || dealRoleStyles.evaluator;
   const initials = contact.name
     .split(" ")
     .map((n) => n.charAt(0))
@@ -58,18 +51,11 @@ export default function PersonCard({ contact }: PersonCardProps) {
             <p className="text-dark-400 text-xs">{contact.title}</p>
           </div>
         </div>
-        <div className="flex flex-col items-end gap-1">
-          <span
-            className={`px-2 py-0.5 rounded text-xs font-medium ${style.text} ${style.bg} border`}
-          >
-            {style.label}
-          </span>
-          {contact.dealRole && contact.dealRole !== contact.tier && (
-            <span className="text-dark-500 text-[10px]">
-              {dealRoleLabels[contact.dealRole] || contact.dealRole}
-            </span>
-          )}
-        </div>
+        <span
+          className={`px-2 py-0.5 rounded text-xs font-medium ${style.text} ${style.bg} border shrink-0`}
+        >
+          {style.label}
+        </span>
       </div>
       <div className="pl-[52px] space-y-1">
         <p className="text-dark-400 text-xs">{contact.whyTheyMatter}</p>

@@ -18,19 +18,19 @@ const tierHeaders: Record<ContactTier, { title: string; description: string }> =
   {
     decision_maker: {
       title: "Decision Makers",
-      description: "C-suite and SVPs with budget authority",
+      description: "Approve budget",
     },
     champion: {
       title: "Champions",
-      description: "Internal advocates who push the deal forward",
+      description: "Drive the evaluation",
     },
     evaluator: {
       title: "Evaluators",
-      description: "Technical leads who assess product fit",
+      description: "Run the pilot",
     },
     blocker: {
       title: "Blockers",
-      description: "Stakeholders who may slow or prevent the deal",
+      description: "Must be addressed",
     },
   };
 

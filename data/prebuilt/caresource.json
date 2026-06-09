@@ -22,8 +22,16 @@
       "title": "Chief Information Officer",
       "dealRole": "economic_buyer",
       "tier": "decision_maker",
-      "whyTheyMatter": "CIO with direct authority over technology investment decisions and IT strategy.",
+      "whyTheyMatter": "CIO driving CareSource's cloud migration and analytics modernization — owns the technology budget for AI adoption.",
       "approachAngle": "Present business case after pilot results. Focus on clear ROI tied to state expansion and member retention during Medicaid unwinding."
+    },
+    {
+      "name": "Steve Smitherman",
+      "title": "Chief Financial Officer",
+      "dealRole": "economic_buyer",
+      "tier": "decision_maker",
+      "whyTheyMatter": "CFO at a nonprofit Medicaid plan where every technology dollar is scrutinized — requires ironclad ROI before approving enterprise spend.",
+      "approachAngle": "Engage after CIO builds the business case. Present unit economics: cost-per-call reduction, member retention revenue impact, and SDoH intervention savings."
     },
     {
       "name": "Amanda Dix",
@@ -64,6 +72,14 @@
       "tier": "blocker",
       "whyTheyMatter": "Compliance VP will scrutinize AI for regulatory risk, especially in Medicaid — must be engaged early.",
       "approachAngle": "Proactively share Medicaid-specific compliance documentation. Address state-by-state regulatory variation for AI in care management."
+    },
+    {
+      "name": "Angela Peterson",
+      "title": "Director, Procurement & Vendor Management",
+      "dealRole": "blocker",
+      "tier": "blocker",
+      "whyTheyMatter": "Nonprofit procurement requires competitive bidding and board-level vendor justification — expect a formal RFP process even for mid-size deals.",
+      "approachAngle": "Provide vendor qualification packet early. Nonprofit procurement values total cost of ownership and mission alignment over pure feature comparison."
     }
   ],
   "signals": {

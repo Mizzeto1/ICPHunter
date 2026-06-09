@@ -46,7 +46,7 @@
       "title": "VP, Data Strategy & Analytics",
       "dealRole": "champion",
       "tier": "champion",
-      "whyTheyMatter": "Data strategy VP would champion AI tools that enhance Kaiser's massive data assets across the integrated system.",
+      "whyTheyMatter": "Owns Kaiser's enterprise data strategy spanning payer claims, clinical records, and pharmacy data for 12.5M members — the unified dataset is their competitive moat.",
       "approachAngle": "Position around data harmonization across payer-provider boundary — a unique pain point only integrated systems face."
     },
     {
@@ -62,7 +62,7 @@
       "title": "Director, Enterprise Architecture",
       "dealRole": "evaluator",
       "tier": "evaluator",
-      "whyTheyMatter": "Enterprise architect evaluates how AI platforms integrate with Kaiser's complex infrastructure.",
+      "whyTheyMatter": "Evaluates how any AI platform integrates with GCP, KP HealthConnect (Epic), and Kaiser's custom ML platform — her technical assessment is the gateway to a POC.",
       "approachAngle": "Provide detailed integration documentation for GCP and Epic early — she will evaluate technical fit before anyone else engages."
     },
     {
@@ -78,7 +78,7 @@
       "title": "VP, Procurement & Strategic Sourcing",
       "dealRole": "blocker",
       "tier": "blocker",
-      "whyTheyMatter": "Kaiser's procurement process is famously rigorous. Early engagement with sourcing reduces late-stage friction.",
+      "whyTheyMatter": "Controls vendor selection for a $2B annual tech budget — Kaiser's procurement is among the most rigorous in healthcare, requiring multi-round evaluation.",
       "approachAngle": "Engage early with pricing framework and vendor qualification materials. Kaiser's vendor assessment is 3-6 months minimum."
     }
   ],

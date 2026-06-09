@@ -22,7 +22,7 @@
       "title": "Chief Information Officer",
       "dealRole": "economic_buyer",
       "tier": "decision_maker",
-      "whyTheyMatter": "CIO with authority over technology investments and AI infrastructure — key budget holder for enterprise AI initiatives.",
+      "whyTheyMatter": "CIO overseeing $1.2B technology modernization across 50-state Medicaid operations — approves all enterprise AI platform investments at this scale.",
       "approachAngle": "Present business case after champion-building phase. Focus on $1.2B tech modernization alignment and enterprise-scale ROI."
     },
     {
@@ -42,12 +42,12 @@
       "approachAngle": "First touch target. Reference AI Center of Excellence and $1.2B tech modernization — offer complimentary use case assessment."
     },
     {
-      "name": "Robert Chen",
-      "title": "VP, Enterprise Architecture",
+      "name": "Maria Santos",
+      "title": "VP, Member Services & Contact Center",
       "dealRole": "champion",
       "tier": "champion",
-      "whyTheyMatter": "Owns enterprise architecture and technology strategy — would influence platform selection and integration approach.",
-      "approachAngle": "Technical deep-dive on how AI platform integrates with their existing Snowflake, Kubernetes, and hybrid cloud infrastructure."
+      "whyTheyMatter": "Runs Centene's 15,000-agent contact center handling 100M+ annual member calls across 50 states — the single largest cost center that conversational AI transforms.",
+      "approachAngle": "Lead with call center pain: real-time agent assist, call summarization, after-call work elimination. This is where OpenAI's ROI hits fastest."
     },
     {
       "name": "Jennifer Martinez",

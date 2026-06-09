@@ -72,6 +72,14 @@
       "tier": "blocker",
       "whyTheyMatter": "Compliance VP for an integrated payer-provider system has dual regulatory scrutiny — must be addressed early.",
       "approachAngle": "Proactively share compliance documentation covering both payer (CMS) and provider (HIPAA/Joint Commission) requirements."
+    },
+    {
+      "name": "William Frazier",
+      "title": "VP, Supply Chain & Procurement",
+      "dealRole": "blocker",
+      "tier": "blocker",
+      "whyTheyMatter": "Post-merger procurement is consolidating vendor relationships across newly merged entities — new vendors face additional scrutiny and longer evaluation cycles.",
+      "approachAngle": "Engage early with vendor qualification materials. Position as consolidation-friendly — one platform replacing multiple point solutions across merged entities."
     }
   ],
   "signals": {

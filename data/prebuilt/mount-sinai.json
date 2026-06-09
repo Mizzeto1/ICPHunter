@@ -50,12 +50,12 @@
       "approachAngle": "Technical deep-dive on capabilities that accelerate existing research. Offer joint publication opportunity."
     },
     {
-      "name": "David Reich",
-      "title": "President, The Mount Sinai Hospital",
-      "dealRole": "economic_buyer",
-      "tier": "decision_maker",
-      "whyTheyMatter": "Hospital president with authority over operational investments and strategic partnerships.",
-      "approachAngle": "Engage late in the process with operational ROI data from pilot results. Focus on clinical efficiency metrics."
+      "name": "Roberta Freeman",
+      "title": "Chief Medical Informatics Officer",
+      "dealRole": "champion",
+      "tier": "champion",
+      "whyTheyMatter": "CMIO bridges clinical practice and technology — the power buyer for clinical AI at academic medical centers. Controls what tools physicians actually adopt.",
+      "approachAngle": "Engage alongside Eric Schadt's team. Focus on physician workflow integration — she determines if AI tools survive clinical committee review."
     },
     {
       "name": "Rachel Sternberg",
@@ -72,6 +72,14 @@
       "tier": "blocker",
       "whyTheyMatter": "CISO will enforce strict security and HIPAA requirements. Academic medical centers have heightened security scrutiny.",
       "approachAngle": "Proactively share security posture documentation. Address research data governance and IRB compliance concerns."
+    },
+    {
+      "name": "Patricia Walsh",
+      "title": "VP, Research Compliance & Privacy",
+      "dealRole": "blocker",
+      "tier": "blocker",
+      "whyTheyMatter": "Academic medical center compliance requires IRB review for any AI touching patient data — adds 2-3 months to deal timeline that must be planned for.",
+      "approachAngle": "Proactively provide IRB-ready documentation and data governance framework. Address research data vs. clinical data handling distinctions."
     }
   ],
   "signals": {
