@@ -43,28 +43,28 @@ function inferOrgType(org: ApolloOrganization | null): OrgType {
 
 export async function POST(request: NextRequest) {
   try {
-    const { orgName, targetCompany } = await request.json();
+    const { company, configSlug } = await request.json();
 
-    if (!orgName || !targetCompany) {
+    if (!company || !configSlug) {
       return NextResponse.json(
-        { error: "Missing orgName or targetCompany" },
+        { error: "Missing company or configSlug" },
         { status: 400 }
       );
     }
 
-    const config = getCompanyConfig(targetCompany);
+    const config = getCompanyConfig(configSlug);
     if (!config) {
       return NextResponse.json(
-        { error: `Unknown company: ${targetCompany}` },
+        { error: `Unknown config: ${configSlug}` },
         { status: 400 }
       );
     }
 
-    const org = await searchOrganization(orgName);
+    const org = await searchOrganization(company);
 
     const fallbackOrg: ApolloOrganization = org || {
       id: "",
-      name: orgName,
+      name: company,
       website_url: "",
       industry: "Healthcare",
       estimated_num_employees: 0,
@@ -83,8 +83,8 @@ export async function POST(request: NextRequest) {
     const titles = getTitlesForOrgType(config.targetTitles, orgType);
 
     const [contacts, signalsRaw] = await Promise.all([
-      searchContacts(orgName, titles),
-      researchWithWebSearch(buildResearchPrompt(orgName, config, orgType)),
+      searchContacts(company, titles),
+      researchWithWebSearch(buildResearchPrompt(company, config, orgType)),
     ]);
 
     let signals: AISignals;
@@ -102,11 +102,11 @@ export async function POST(request: NextRequest) {
 
     const [planRaw, categorizationRaw] = await Promise.all([
       generateWithClaude(
-        buildAccountPlanPrompt(orgName, config, fallbackOrg, JSON.stringify(signals), orgType)
+        buildAccountPlanPrompt(company, config, fallbackOrg, JSON.stringify(signals), orgType)
       ),
       contacts.length > 0
         ? generateWithClaude(
-            buildContactCategorizationPrompt(contacts, orgName, config, orgType)
+            buildContactCategorizationPrompt(contacts, company, config, orgType)
           )
         : Promise.resolve("[]"),
     ]);
@@ -175,7 +175,7 @@ export async function POST(request: NextRequest) {
       fit_score: fitScore,
       overall_score: overallScore,
       generated_at: new Date().toISOString(),
-      target_company: targetCompany,
+      target_company: configSlug,
     };
 
     return NextResponse.json(result);

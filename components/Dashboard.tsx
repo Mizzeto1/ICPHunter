@@ -111,7 +111,7 @@ export default function Dashboard({ config }: DashboardProps) {
       const res = await fetch("/api/research", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ orgName: query, targetCompany: config.slug }),
+        body: JSON.stringify({ company: query, configSlug: config.slug }),
       });
 
       if (!res.ok) {
