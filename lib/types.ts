@@ -73,10 +73,12 @@ export interface AccountPlan {
 }
 
 export interface AISignals {
-  ai_strategy: string[];
-  hiring_signals: string[];
-  recent_news: string[];
-  technology_stack: string[];
+  orgType: "payer" | "provider" | "integrated" | "bpo";
+  aiStrategy: string;
+  recentNews: string[];
+  hiringSignals: string[];
+  partnerships: string[];
+  riskFactors: string[];
 }
 
 export interface ResearchResult {

@@ -83,32 +83,32 @@
   ],
   "suggested_titles": [],
   "signals": {
-    "ai_strategy": [
-      "Sentara leveraging AI for integrated care management across payer and provider operations",
-      "Investing in predictive models to identify high-risk members within their own health plan",
-      "Exploring AI-powered clinical decision support across 12 hospital sites",
-      "Digital front door initiative using AI for patient triage and navigation",
-      "Building unified data platform to enable AI across the integrated system"
-    ],
-    "hiring_signals": [
-      "Growing data analytics team with focus on population health AI",
-      "New digital transformation VP role filled in 2024",
-      "Hiring ML engineers for health plan analytics",
-      "Clinical informatics team expanding to support AI deployment"
-    ],
-    "recent_news": [
+    "orgType": "integrated",
+    "aiStrategy": "Sentara is leveraging AI for integrated care management across payer and provider operations, investing in predictive models to identify high-risk members within their health plan, and building a unified data platform to enable AI across the integrated system. Their digital front door initiative uses AI for patient triage and navigation across 12 hospital sites.",
+    "recentNews": [
       "Sentara completed merger expanding to 12 hospitals \u2014 creating integration challenges and opportunities",
       "Announced $500M technology investment over 3 years post-merger",
       "Health plan division reached 1M+ covered lives milestone",
       "Launched new value-based care programs requiring advanced analytics",
       "CEO highlighted 'integrated intelligence' as strategic priority at board meeting"
     ],
-    "technology_stack": [
+    "hiringSignals": [
+      "Growing data analytics team with focus on population health AI",
+      "New digital transformation VP role filled in 2024",
+      "Hiring ML engineers for health plan analytics",
+      "Clinical informatics team expanding to support AI deployment"
+    ],
+    "partnerships": [
       "Epic EHR across hospital network",
       "Azure cloud infrastructure",
-      "Health plan on Facets claims platform",
-      "Tableau for business intelligence",
-      "Custom integration layer between payer and provider data"
+      "Facets claims platform for health plan",
+      "Tableau for business intelligence"
+    ],
+    "riskFactors": [
+      "Post-merger integration means systems are still being harmonized \u2014 technical readiness is improving but not yet mature",
+      "Dual regulatory scrutiny as an integrated payer-provider system",
+      "$500M technology budget may fund internal development teams over external vendors",
+      "Complex organizational structure across newly merged entities slows decision-making"
     ]
   },
   "plan": {

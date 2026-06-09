@@ -74,30 +74,31 @@
   ],
   "suggested_titles": [],
   "signals": {
-    "ai_strategy": [
-      "CareSource investing in predictive analytics for social determinants of health (SDoH) interventions",
-      "Launched AI-powered care coordination platform for complex Medicaid populations",
-      "Exploring generative AI for member communication and health literacy",
-      "Building machine learning models for claims fraud detection"
-    ],
-    "hiring_signals": [
-      "Hiring data scientists with healthcare/Medicaid experience",
-      "New Director of Innovation role suggests growing innovation capacity",
-      "Expanding digital health team with focus on AI/ML"
-    ],
-    "recent_news": [
+    "orgType": "payer",
+    "aiStrategy": "CareSource is investing in predictive analytics for social determinants of health (SDoH) interventions and has launched an AI-powered care coordination platform for complex Medicaid populations. They are exploring generative AI for member communication and health literacy, and building ML models for claims fraud detection.",
+    "recentNews": [
       "CareSource expanded to serve 2.4M+ members across multiple states",
       "Announced new marketplace plans leveraging digital-first member experience",
       "Partnered with SDoH data vendors to enrich member profiles",
       "CEO emphasized 'technology-forward approach to Medicaid' at industry conference",
       "Invested in cloud migration to support advanced analytics workloads"
     ],
-    "technology_stack": [
+    "hiringSignals": [
+      "Hiring data scientists with healthcare/Medicaid experience",
+      "New Director of Innovation role suggests growing innovation capacity",
+      "Expanding digital health team with focus on AI/ML"
+    ],
+    "partnerships": [
       "Azure cloud infrastructure",
       "Databricks for data analytics and ML",
       "Salesforce for CRM and member engagement",
-      "Facets for claims administration",
-      "Custom data lake for population health"
+      "Facets for claims administration"
+    ],
+    "riskFactors": [
+      "Databricks already embedded as analytics platform — may try to upsell AI/ML capabilities",
+      "Nonprofit status means more price-sensitive than for-profit peers",
+      "Growing but still mid-market data science team may lack capacity for complex AI integrations",
+      "Medicaid-focused regulatory environment requires specific compliance expertise from vendors"
     ]
   },
   "plan": {

@@ -1,12 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { searchApolloCompany, searchApolloContacts } from "@/lib/apollo";
 import {
-  researchWithWebSearch,
+  researchCompanySignals,
   generateWithClaude,
   parseJSON,
 } from "@/lib/claude";
 import {
-  buildSignalsPrompt,
   buildSynthesisPrompt,
   buildWebOnlyPlanPrompt,
 } from "@/lib/prompts";
@@ -25,18 +24,15 @@ import {
 
 export const maxDuration = 60;
 
-function parseSignals(raw: string): AISignals {
-  try {
-    const parsed = parseJSON<{ signals: AISignals }>(raw);
-    return parsed.signals;
-  } catch {
-    return {
-      ai_strategy: ["Research data unavailable — manual review recommended"],
-      hiring_signals: ["Research data unavailable"],
-      recent_news: ["Research data unavailable"],
-      technology_stack: ["Research data unavailable"],
-    };
-  }
+function emptySignals(): AISignals {
+  return {
+    orgType: "provider",
+    aiStrategy: "Research data unavailable — manual review recommended",
+    recentNews: ["Research data unavailable"],
+    hiringSignals: ["Research data unavailable"],
+    partnerships: ["Research data unavailable"],
+    riskFactors: ["Research data unavailable"],
+  };
 }
 
 function emptyOrg(name: string): ApolloOrganization {
@@ -76,10 +72,12 @@ async function generateWebOnlyPlan(
   companyName: string,
   config: CompanyConfig
 ): Promise<Response> {
-  const signalsRaw = await researchWithWebSearch(
-    buildSignalsPrompt(companyName, config)
-  );
-  const signals = parseSignals(signalsRaw);
+  let signals: AISignals;
+  try {
+    signals = await researchCompanySignals(companyName);
+  } catch {
+    signals = emptySignals();
+  }
 
   const planRaw = await generateWithClaude(
     buildWebOnlyPlanPrompt(companyName, JSON.stringify(signals), config)
@@ -105,7 +103,9 @@ async function generateWebOnlyPlan(
 
   const overallScore =
     fitScore.length > 0
-      ? Math.round(fitScore.reduce((sum, f) => sum + f.score, 0) / fitScore.length)
+      ? Math.round(
+          fitScore.reduce((sum, f) => sum + f.score, 0) / fitScore.length
+        )
       : 0;
 
   const result: ResearchResult = {
@@ -154,16 +154,19 @@ export async function POST(request: NextRequest) {
       ...config.targetTitles.provider,
     ];
 
-    const [contacts, signalsRaw] = await Promise.all([
+    const [contacts, signals] = await Promise.all([
       searchApolloContacts(apolloCompany.domain, allTitles),
-      researchWithWebSearch(buildSignalsPrompt(company, config)),
+      researchCompanySignals(company).catch(() => emptySignals()),
     ]);
-
-    const signals = parseSignals(signalsRaw);
 
     // STEP 3: Claude synthesizes everything in one call
     const synthesisRaw = await generateWithClaude(
-      buildSynthesisPrompt(apolloCompany, contacts, JSON.stringify(signals), config)
+      buildSynthesisPrompt(
+        apolloCompany,
+        contacts,
+        JSON.stringify(signals),
+        config
+      )
     );
 
     let plan: AccountPlan;
@@ -184,7 +187,10 @@ export async function POST(request: NextRequest) {
       suggestedTitles = parsed.suggested_titles || [];
 
       const categoryMap = new Map(
-        (parsed.contacts || []).map((c) => [c.name, { tier: c.tier, reasoning: c.reasoning }])
+        (parsed.contacts || []).map((c) => [
+          c.name,
+          { tier: c.tier, reasoning: c.reasoning },
+        ])
       );
 
       categorizedContacts = contacts.map((contact: ApolloContact) => {
@@ -208,7 +214,9 @@ export async function POST(request: NextRequest) {
 
     const overallScore =
       fitScore.length > 0
-        ? Math.round(fitScore.reduce((sum, f) => sum + f.score, 0) / fitScore.length)
+        ? Math.round(
+            fitScore.reduce((sum, f) => sum + f.score, 0) / fitScore.length
+          )
         : 0;
 
     const result: ResearchResult = {

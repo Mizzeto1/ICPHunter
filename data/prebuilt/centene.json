@@ -92,32 +92,33 @@
   ],
   "suggested_titles": [],
   "signals": {
-    "ai_strategy": [
-      "Centene has invested heavily in AI/ML for claims processing automation, reducing manual review by 40%",
-      "Launched an internal AI Center of Excellence in 2024 to coordinate enterprise AI adoption",
-      "Partnering with health tech vendors for predictive analytics in population health management",
-      "Active exploration of generative AI for member services chatbots and provider communication",
-      "Committed to AI-driven fraud, waste, and abuse detection across their $154B claims portfolio"
-    ],
-    "hiring_signals": [
-      "20+ open roles for data scientists and ML engineers on their careers page",
-      "Hired new Chief Data & Analytics Officer in 2024, signaling leadership investment in data strategy",
-      "Growing their clinical informatics team with focus on AI-assisted care management",
-      "New VP of Digital Transformation role filled \u2014 indicates active transformation program"
-    ],
-    "recent_news": [
+    "orgType": "payer",
+    "aiStrategy": "Centene has invested heavily in AI/ML for claims processing automation (reducing manual review by 40%) and launched an internal AI Center of Excellence in 2024 to coordinate enterprise AI adoption. They are actively exploring generative AI for member services chatbots and provider communication, and are committed to AI-driven fraud, waste, and abuse detection across their $154B claims portfolio.",
+    "recentNews": [
       "Centene announced $1.2B technology modernization initiative spanning 2024-2026",
       "Expanded Medicaid coverage to 28.5M members \u2014 scale creates massive data processing needs",
       "Partnered with major cloud provider for enterprise data lake migration",
       "CEO highlighted 'AI-first approach to member experience' in Q3 2024 earnings call",
       "Launched new digital-first health plan product leveraging AI for personalized care navigation"
     ],
-    "technology_stack": [
+    "hiringSignals": [
+      "20+ open roles for data scientists and ML engineers on their careers page",
+      "Hired new Chief Data & Analytics Officer in 2024, signaling leadership investment in data strategy",
+      "Growing their clinical informatics team with focus on AI-assisted care management",
+      "New VP of Digital Transformation role filled \u2014 indicates active transformation program"
+    ],
+    "partnerships": [
       "AWS and Azure hybrid cloud infrastructure",
       "Snowflake for enterprise data warehousing",
       "Salesforce Health Cloud for CRM",
       "Epic/Cerner integration layer for clinical data",
       "Internal ML platform built on Kubernetes"
+    ],
+    "riskFactors": [
+      "Existing relationships with Optum/UHG Analytics, IBM Watson Health, and Cognizant may favor incumbents",
+      "AI Center of Excellence with 20+ data scientists may prefer building in-house on existing ML platform",
+      "Operating in all 50 states means 50 different regulatory environments for any AI deployment",
+      "Consulting firms (Deloitte, McKinsey, Accenture) actively pitching Centene and may influence vendor selection"
     ]
   },
   "plan": {

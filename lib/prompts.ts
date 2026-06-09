@@ -1,72 +1,37 @@
 import { CompanyConfig, ApolloContact, ApolloOrganization } from "./types";
 
-export function buildSignalsPrompt(
-  companyName: string,
-  config: CompanyConfig
-): string {
-  return `You are an elite enterprise sales strategist specializing in selling AI/technology solutions to large healthcare organizations. You are researching "${companyName}" to build an account plan for selling ${config.name}'s products.
-
-${config.name} — ${config.product}
-${config.tagline}
-
-VALUE PROPOSITIONS FOR PAYERS:
-${config.valueProps.payer.map((v) => `- ${v}`).join("\n")}
-
-VALUE PROPOSITIONS FOR PROVIDERS:
-${config.valueProps.provider.map((v) => `- ${v}`).join("\n")}
-
-KNOWN COMPETITORS IN THIS SPACE:
-${config.competitors.map((c) => `- ${c}`).join("\n")}
-
-Research "${companyName}" and provide a comprehensive analysis. Use web search to find:
-1. Their current AI/technology initiatives and digital transformation strategy
-2. Recent news, partnerships, or announcements related to technology
-3. Any job postings related to AI, data science, or digital transformation
-4. Their technology stack and vendor relationships
-5. Pain points and challenges they face
-
-Return your findings as a JSON object with this exact structure:
-{
-  "signals": {
-    "ai_strategy": ["<3-5 bullet points about their AI/tech strategy>"],
-    "hiring_signals": ["<2-4 bullet points about relevant job postings or team growth>"],
-    "recent_news": ["<3-5 recent news items or announcements>"],
-    "technology_stack": ["<3-5 known technology vendors or platforms>"]
-  }
-}
-
-Return ONLY valid JSON, no markdown formatting or code blocks.`;
-}
-
 export function buildSynthesisPrompt(
   apolloCompany: ApolloOrganization,
   contacts: ApolloContact[],
   signals: string,
   config: CompanyConfig
 ): string {
-  const contactList = contacts.length > 0
-    ? contacts
-        .map(
-          (c) =>
-            `- ${c.name} | ${c.title} | Seniority: ${c.seniority} | Department: ${c.department} | LinkedIn: ${c.linkedinUrl || "N/A"}`
-        )
-        .join("\n")
-    : "No contacts found in Apollo.";
+  const contactList =
+    contacts.length > 0
+      ? contacts
+          .map(
+            (c) =>
+              `- ${c.name} | ${c.title} | Seniority: ${c.seniority} | Department: ${c.department} | LinkedIn: ${c.linkedinUrl || "N/A"}`
+          )
+          .join("\n")
+      : "No contacts found in Apollo.";
 
-  const contactInstruction = contacts.length > 0
-    ? `2. Categorize EVERY contact into a buying committee tier:
+  const contactInstruction =
+    contacts.length > 0
+      ? `2. Categorize EVERY contact into a buying committee tier:
    - decision_maker: C-suite or SVP who signs the check
    - champion: Director/VP who will internally advocate
    - evaluator: Technical leads who assess the product
    - blocker: People who may slow the deal (procurement, compliance, security, legal)`
-    : `2. Since no contacts were found, suggest 8-12 specific titles to target at this organization, categorized by buying committee tier:
+      : `2. Since no contacts were found, suggest 8-12 specific titles to target at this organization, categorized by buying committee tier:
    - decision_maker: C-suite or SVP who signs the check
    - champion: Director/VP who will internally advocate
    - evaluator: Technical leads who assess the product
    - blocker: People who may slow the deal (procurement, compliance, security, legal)`;
 
-  const contactsJsonSpec = contacts.length > 0
-    ? `"contacts": [
+  const contactsJsonSpec =
+    contacts.length > 0
+      ? `"contacts": [
     {
       "name": "<full name exactly as listed above>",
       "tier": "<decision_maker|champion|evaluator|blocker>",
@@ -74,7 +39,7 @@ export function buildSynthesisPrompt(
     }
   ],
   "suggested_titles": [],`
-    : `"contacts": [],
+      : `"contacts": [],
   "suggested_titles": [
     {
       "title": "<specific title like 'Chief Information Officer' or 'VP Digital Transformation'>",
@@ -115,7 +80,7 @@ ${signals}
 ===== YOUR TASK =====
 Synthesize everything above into a complete, actionable account plan. You must:
 
-1. Determine whether ${apolloCompany.name} is a PAYER, PROVIDER, or INTEGRATED system and select the most relevant value propositions accordingly.
+1. Use the org type and AI strategy signals above to select the most relevant value propositions for ${apolloCompany.name}.
 
 ${contactInstruction}
 
@@ -171,7 +136,7 @@ ${config.competitors.map((c) => `- ${c}`).join("\n")}
 ===== MARKET & AI SIGNALS FOR "${companyName.toUpperCase()}" =====
 ${signals}
 
-Build an account plan based on the available signals. Determine whether "${companyName}" is a payer, provider, or integrated system and select the most relevant value propositions.
+Build an account plan based on the available signals. Use the org type and AI strategy signals above to select the most relevant value propositions.
 
 Since no contacts are available from Apollo, suggest 8-12 specific titles to target, categorized by deal role:
 - decision_maker: C-suite/SVP who signs the check

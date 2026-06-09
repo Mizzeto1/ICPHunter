@@ -83,32 +83,32 @@
   ],
   "suggested_titles": [],
   "signals": {
-    "ai_strategy": [
-      "Mount Sinai established the Hasso Plattner Institute for Digital Health \u2014 one of the most advanced clinical AI programs in the US",
-      "Published 200+ peer-reviewed AI/ML papers across clinical applications including radiology, pathology, and genomics",
-      "Deployed AI-powered clinical decision support across multiple specialties",
-      "Active collaboration with tech companies on federated learning and privacy-preserving AI",
-      "Building foundation models for clinical data across their 8-hospital system"
-    ],
-    "hiring_signals": [
-      "Dean of AI and Human Health role (Eric Schadt) signals institutional commitment at the highest level",
-      "Actively recruiting postdoctoral AI researchers and clinical data scientists",
-      "Growing the digital health engineering team with ML ops focus",
-      "New clinical informatics fellowship incorporates AI/ML training"
-    ],
-    "recent_news": [
+    "orgType": "provider",
+    "aiStrategy": "Mount Sinai established the Hasso Plattner Institute for Digital Health \u2014 one of the most advanced clinical AI programs in the US \u2014 and has published 200+ peer-reviewed AI/ML papers across radiology, pathology, and genomics. They are actively building foundation models for clinical data across their 8-hospital system and collaborating with tech companies on federated learning and privacy-preserving AI.",
+    "recentNews": [
       "Mount Sinai received $100M+ investment in AI and data science infrastructure",
       "Launched AI-powered triage system in emergency departments across the system",
       "Partnership with major tech company for ambient clinical documentation",
       "Published groundbreaking study on AI predicting COVID outcomes \u2014 showcased system-wide data capabilities",
       "Announced new Center for AI and Digital Health combining research and clinical deployment"
     ],
-    "technology_stack": [
+    "hiringSignals": [
+      "Dean of AI and Human Health role (Eric Schadt) signals institutional commitment at the highest level",
+      "Actively recruiting postdoctoral AI researchers and clinical data scientists",
+      "Growing the digital health engineering team with ML ops focus",
+      "New clinical informatics fellowship incorporates AI/ML training"
+    ],
+    "partnerships": [
       "Epic EHR across the health system",
       "AWS and on-premise hybrid infrastructure",
-      "Custom research computing cluster for ML training",
       "Palantir Foundry for data integration",
       "REDCap for clinical research data"
+    ],
+    "riskFactors": [
+      "World-class internal AI research team may prefer building over buying external solutions",
+      "Academic medical center procurement involves IRB and regulatory layers beyond standard enterprise sales",
+      "Heightened HIPAA scrutiny as a research institution handling sensitive patient data",
+      "Sophisticated buyers require deep technical credibility \u2014 no tolerance for generic AI pitches"
     ]
   },
   "plan": {

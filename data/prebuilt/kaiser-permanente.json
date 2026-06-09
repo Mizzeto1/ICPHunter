@@ -92,32 +92,32 @@
   ],
   "suggested_titles": [],
   "signals": {
-    "ai_strategy": [
-      "Kaiser Permanente operates one of the largest clinical AI programs in US healthcare, with 50+ deployed models",
-      "Established dedicated VP of Applied AI & Machine Learning role \u2014 institutional commitment to AI at scale",
-      "AI-powered member app serves 12.5M members with personalized health recommendations",
-      "Deploying ambient clinical documentation AI across medical group to reduce physician burnout",
-      "Investing in AI for population health management across their fully integrated system"
-    ],
-    "hiring_signals": [
-      "100+ open technology roles including ML engineers, data scientists, and AI product managers",
-      "Growing Applied AI team under dedicated VP \u2014 signals expanding investment",
-      "Recruiting AI ethics and governance roles \u2014 maturing their AI program",
-      "Clinical AI team expanding to support deployment across 39 hospitals"
-    ],
-    "recent_news": [
+    "orgType": "integrated",
+    "aiStrategy": "Kaiser Permanente operates one of the largest clinical AI programs in US healthcare with 50+ deployed models and a dedicated VP of Applied AI & Machine Learning. Their AI-powered member app serves 12.5M members with personalized health recommendations, and they are deploying ambient clinical documentation AI across their medical group to reduce physician burnout.",
+    "recentNews": [
       "Kaiser announced $2B+ annual technology investment \u2014 one of the largest in healthcare",
       "Launched AI-powered virtual care platform for members in all 8 service regions",
       "Published research on AI reducing diagnostic errors in radiology by 30%",
       "CEO Greg Adams highlighted AI as 'transformation priority #1' at annual leadership meeting",
       "Partnered with academic institutions for clinical AI research and validation"
     ],
-    "technology_stack": [
-      "Epic EHR (KP HealthConnect) \u2014 one of the largest Epic deployments globally",
+    "hiringSignals": [
+      "100+ open technology roles including ML engineers, data scientists, and AI product managers",
+      "Growing Applied AI team under dedicated VP \u2014 signals expanding investment",
+      "Recruiting AI ethics and governance roles \u2014 maturing their AI program",
+      "Clinical AI team expanding to support deployment across 39 hospitals"
+    ],
+    "partnerships": [
       "Google Cloud Platform for AI/ML infrastructure",
-      "Custom ML platform for model development and deployment",
+      "Epic EHR (KP HealthConnect) \u2014 one of the largest Epic deployments globally",
       "Snowflake for enterprise analytics",
-      "KP.org + mobile app platform serving 12.5M members"
+      "Academic institution partnerships for clinical AI research and validation"
+    ],
+    "riskFactors": [
+      "Massive PHI exposure (12.5M members) means extreme regulatory scrutiny on any AI vendor",
+      "Strong internal AI team (100+ engineers) may prefer building over buying",
+      "Famously rigorous procurement process \u2014 3-6 months minimum vendor assessment",
+      "Complex organizational structure across 8 states and D.C. slows decision-making"
     ]
   },
   "plan": {
