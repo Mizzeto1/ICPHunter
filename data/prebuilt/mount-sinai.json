@@ -1,0 +1,219 @@
+{
+  "organization": {
+    "id": "mount-sinai-001",
+    "name": "Mount Sinai Health System",
+    "website_url": "https://www.mountsinai.org",
+    "industry": "Hospital & Health Care",
+    "estimated_num_employees": 48000,
+    "annual_revenue_printed": "$9.7B",
+    "short_description": "Mount Sinai Health System is one of the largest academic medical systems in New York City, encompassing eight hospitals, a leading medical school, and a vast network of ambulatory practices. Known for pioneering research and clinical innovation.",
+    "logo_url": "",
+    "founded_year": 1852,
+    "linkedin_url": "https://www.linkedin.com/company/mount-sinai-health-system",
+    "phone": "(212) 659-8888",
+    "city": "New York",
+    "state": "New York",
+    "country": "United States"
+  },
+  "contacts": [
+    {
+      "id": "ms-001",
+      "first_name": "Kristin",
+      "last_name": "Myers",
+      "name": "Kristin Myers",
+      "title": "Chief Information Officer & SVP",
+      "linkedin_url": "https://www.linkedin.com/in/kristinmyers/",
+      "email": "",
+      "photo_url": "",
+      "organization_name": "Mount Sinai Health System",
+      "city": "New York",
+      "state": "New York",
+      "departments": ["Information Technology"],
+      "seniority": "c_suite",
+      "tier": "decision_maker",
+      "reasoning": "CIO with system-wide authority over technology investments. Key decision-maker for AI infrastructure."
+    },
+    {
+      "id": "ms-002",
+      "first_name": "Eric",
+      "last_name": "Schadt",
+      "name": "Eric Schadt",
+      "title": "Chief Data Scientist & Dean, AI and Human Health",
+      "linkedin_url": "https://www.linkedin.com/in/ericschadt/",
+      "email": "",
+      "photo_url": "",
+      "organization_name": "Mount Sinai Health System",
+      "city": "New York",
+      "state": "New York",
+      "departments": ["Data Science", "Research"],
+      "seniority": "c_suite",
+      "tier": "decision_maker",
+      "reasoning": "Chief Data Scientist and Dean of AI — direct authority over AI strategy and investment. The most important stakeholder in any AI deal."
+    },
+    {
+      "id": "ms-003",
+      "first_name": "Thomas",
+      "last_name": "Chen",
+      "name": "Thomas Chen",
+      "title": "VP, Digital Health & Innovation",
+      "linkedin_url": "https://www.linkedin.com/in/thomaschen/",
+      "email": "",
+      "photo_url": "",
+      "organization_name": "Mount Sinai Health System",
+      "city": "New York",
+      "state": "New York",
+      "departments": ["Innovation", "Digital Health"],
+      "seniority": "vp",
+      "tier": "champion",
+      "reasoning": "Leads digital health innovation — would champion AI tools that accelerate Mount Sinai's innovation agenda."
+    },
+    {
+      "id": "ms-004",
+      "first_name": "Benjamin",
+      "last_name": "Glicksberg",
+      "name": "Benjamin Glicksberg",
+      "title": "Director, AI & Data Science Research",
+      "linkedin_url": "https://www.linkedin.com/in/benjaminglicksberg/",
+      "email": "",
+      "photo_url": "",
+      "organization_name": "Mount Sinai Health System",
+      "city": "New York",
+      "state": "New York",
+      "departments": ["Research", "Data Science"],
+      "seniority": "director",
+      "tier": "evaluator",
+      "reasoning": "Directs AI research and would technically evaluate any AI platform for research and clinical applications."
+    },
+    {
+      "id": "ms-005",
+      "first_name": "David",
+      "last_name": "Reich",
+      "name": "David Reich",
+      "title": "President, The Mount Sinai Hospital",
+      "linkedin_url": "https://www.linkedin.com/in/davidreich/",
+      "email": "",
+      "photo_url": "",
+      "organization_name": "Mount Sinai Health System",
+      "city": "New York",
+      "state": "New York",
+      "departments": ["Executive"],
+      "seniority": "c_suite",
+      "tier": "decision_maker",
+      "reasoning": "Hospital president with authority over operational investments and strategic partnerships."
+    },
+    {
+      "id": "ms-006",
+      "first_name": "Rachel",
+      "last_name": "Sternberg",
+      "name": "Rachel Sternberg",
+      "title": "Director, Clinical Informatics",
+      "linkedin_url": "https://www.linkedin.com/in/rachelsternberg/",
+      "email": "",
+      "photo_url": "",
+      "organization_name": "Mount Sinai Health System",
+      "city": "New York",
+      "state": "New York",
+      "departments": ["Clinical Informatics"],
+      "seniority": "director",
+      "tier": "evaluator",
+      "reasoning": "Clinical informatics director bridges technology and clinical workflows — key evaluator for clinical AI deployment."
+    },
+    {
+      "id": "ms-007",
+      "first_name": "Mark",
+      "last_name": "Hoffman",
+      "name": "Mark Hoffman",
+      "title": "CISO",
+      "linkedin_url": "https://www.linkedin.com/in/markhoffman/",
+      "email": "",
+      "photo_url": "",
+      "organization_name": "Mount Sinai Health System",
+      "city": "New York",
+      "state": "New York",
+      "departments": ["Information Security"],
+      "seniority": "c_suite",
+      "tier": "blocker",
+      "reasoning": "CISO will enforce strict security and HIPAA requirements. Academic medical centers have heightened security scrutiny."
+    }
+  ],
+  "signals": {
+    "ai_strategy": [
+      "Mount Sinai established the Hasso Plattner Institute for Digital Health — one of the most advanced clinical AI programs in the US",
+      "Published 200+ peer-reviewed AI/ML papers across clinical applications including radiology, pathology, and genomics",
+      "Deployed AI-powered clinical decision support across multiple specialties",
+      "Active collaboration with tech companies on federated learning and privacy-preserving AI",
+      "Building foundation models for clinical data across their 8-hospital system"
+    ],
+    "hiring_signals": [
+      "Dean of AI and Human Health role (Eric Schadt) signals institutional commitment at the highest level",
+      "Actively recruiting postdoctoral AI researchers and clinical data scientists",
+      "Growing the digital health engineering team with ML ops focus",
+      "New clinical informatics fellowship incorporates AI/ML training"
+    ],
+    "recent_news": [
+      "Mount Sinai received $100M+ investment in AI and data science infrastructure",
+      "Launched AI-powered triage system in emergency departments across the system",
+      "Partnership with major tech company for ambient clinical documentation",
+      "Published groundbreaking study on AI predicting COVID outcomes — showcased system-wide data capabilities",
+      "Announced new Center for AI and Digital Health combining research and clinical deployment"
+    ],
+    "technology_stack": [
+      "Epic EHR across the health system",
+      "AWS and on-premise hybrid infrastructure",
+      "Custom research computing cluster for ML training",
+      "Palantir Foundry for data integration",
+      "REDCap for clinical research data"
+    ]
+  },
+  "plan": {
+    "executive_summary": "Mount Sinai Health System is a premier academic medical center that has invested more heavily in clinical AI than almost any other health system in the country. Their Hasso Plattner Institute for Digital Health, 200+ AI publications, and dedicated Dean of AI and Human Health position them as both a sophisticated buyer and a reference-worthy customer.\n\nThe opportunity here is not a greenfield AI adoption — Mount Sinai already has deep AI capabilities. The play is to provide infrastructure, platform, or specific capabilities that accelerate their existing research and clinical AI programs. They need tools that meet their sophisticated requirements while scaling across 8 hospitals and 48,000 employees.\n\nLanding Mount Sinai would be a flagship healthcare reference account, opening doors across academic medical centers nationwide.",
+    "pain_product_fit": "1. SCALE FROM RESEARCH TO PRODUCTION: Mount Sinai has hundreds of AI models in research. The gap is deploying them into clinical workflows at scale. Platform capabilities that bridge research-to-production are critical.\n\n2. CLINICAL DOCUMENTATION: With 48K employees and 8 hospitals, ambient documentation and clinical NLP at scale represents massive time savings for physicians.\n\n3. MULTI-SITE DATA HARMONIZATION: 8 hospitals with varying data quality and formats. AI-powered data harmonization and normalization is a constant challenge.\n\n4. PATIENT EXPERIENCE: AI-powered patient communication, scheduling optimization, and personalized care navigation across the system's complex network.\n\n5. OPERATIONAL EFFICIENCY: Revenue cycle optimization, staffing prediction, and supply chain forecasting across a $9.7B operation.",
+    "competitive_threats": "- PALANTIR: Already embedded with Foundry platform for data integration. Strong incumbent relationship.\n- GOOGLE HEALTH: Active research collaborations with academic medical centers, including potential Mount Sinai ties.\n- MICROSOFT/NUANCE: DAX Copilot for clinical documentation likely already deployed or in pilot.\n- INTERNAL TEAMS: World-class AI research team may prefer building on their own infrastructure.\n- NVIDIA: Clara healthcare platform provides GPU-accelerated clinical AI tools.\n- EPIC: Expanding AI capabilities within the EHR may reduce demand for external solutions.",
+    "timing_urgency": "1. INFRASTRUCTURE INVESTMENT: Recent $100M+ AI investment means budget is allocated and being deployed NOW.\n2. SCALE CHALLENGE: Expanding clinical AI from research pilots to system-wide deployment requires new tooling — current infrastructure may not scale.\n3. COMPETITIVE POSITIONING: Other academic medical centers (Mayo, Cleveland Clinic, Mass General Brigham) are also racing to deploy clinical AI.\n4. REGULATORY WINDOW: FDA framework for clinical AI is evolving — early deployment establishes competitive advantage.\n5. TALENT RETENTION: World-class AI team needs state-of-the-art tools to remain competitive for top research talent.",
+    "deal_strategy": "APPROACH: This is a technical sale to sophisticated buyers. Lead with capability and research credibility, not generic pitch decks.\n\nPHASE 1 — Research-first engagement. Connect with Eric Schadt's team through academic channels, conference presentations, or published research collaboration.\n\nPHASE 2 — Technical deep-dive with Benjamin Glicksberg and the AI research team. Demonstrate capabilities that accelerate their existing work.\n\nPHASE 3 — Build the clinical bridge through Thomas Chen (Digital Health Innovation). Show how research capabilities translate to clinical deployment.\n\nPHASE 4 — Executive alignment with CIO Kristin Myers on infrastructure and scaling strategy.\n\nPHASE 5 — Joint pilot with publication opportunity — academic medical centers value publishable results.",
+    "discovery_questions": [
+      "What's your biggest bottleneck in moving AI models from research into clinical production?",
+      "How do you currently handle data harmonization across your 8 hospital sites?",
+      "What infrastructure are you using for ML training and inference at scale?",
+      "How do you evaluate third-party AI platforms vs. building internally?",
+      "What clinical workflows would benefit most from AI automation today?",
+      "How does the Hasso Plattner Institute collaborate with the clinical operations teams?",
+      "What's your approach to AI model governance and monitoring in production?",
+      "How important is the ability to publish results when evaluating new AI partnerships?",
+      "What are your top 3 priorities for clinical AI deployment this year?",
+      "How do you handle IRB and regulatory requirements for deploying AI in clinical settings?"
+    ],
+    "roi_framework": "RESEARCH ACCELERATION:\n- Reduce model development cycle from 6 months to 6 weeks for standard clinical AI applications\n- Enable 10x more concurrent AI experiments with better infrastructure\n\nCLINICAL IMPACT:\n- Clinical documentation AI: Save 2 hours/physician/day across 5,000+ physicians = $300M+ annually in physician time\n- Predictive analytics: 15% reduction in readmissions across the system = ~$50M in avoided penalties\n- ED triage optimization: 20% improvement in throughput = significant revenue and patient satisfaction impact\n\nOPERATIONAL:\n- Revenue cycle AI: 3% improvement in coding accuracy on $9.7B revenue = $291M impact\n- Staffing optimization: 10% reduction in agency nursing spend = $30-50M annual savings\n\nPILOT: 90-day pilot with one clinical department (suggest radiology or pathology). Publish joint paper on results.",
+    "first_touch_email": "Subject: Accelerating Mount Sinai's Clinical AI Pipeline — Research to Production\n\nHi Thomas,\n\nMount Sinai's AI program is genuinely impressive — the work from the Hasso Plattner Institute on clinical foundation models is ahead of most health systems by years.\n\nI work with health systems solving a specific challenge I imagine you're facing: scaling AI from research success to system-wide clinical deployment. The gap between a published model and a production workflow running across 8 hospitals is where most programs stall.\n\nWould you be open to a 20-minute conversation about what's working for similar academic medical centers making that transition?\n\nBest,\nYuvraj"
+  },
+  "fit_score": [
+    {
+      "dimension": "Strategic Alignment",
+      "score": 10,
+      "reasoning": "One of the most AI-forward health systems in the country — perfect strategic fit for any AI product."
+    },
+    {
+      "dimension": "Budget Capacity",
+      "score": 8,
+      "reasoning": "$9.7B revenue with $100M+ dedicated AI investment — budget is allocated for the right solutions."
+    },
+    {
+      "dimension": "Technical Readiness",
+      "score": 9,
+      "reasoning": "World-class AI team, existing infrastructure, and research track record indicate exceptional technical readiness."
+    },
+    {
+      "dimension": "Urgency / Timing",
+      "score": 7,
+      "reasoning": "Active investment cycle but sophisticated buyers take longer to decide — urgency is moderate."
+    },
+    {
+      "dimension": "Champion Access",
+      "score": 7,
+      "reasoning": "Academic leadership accessible through research channels but may have longer engagement cycles."
+    }
+  ],
+  "overall_score": 8,
+  "generated_at": "2025-01-15T00:00:00Z",
+  "target_company": "openai"
+}

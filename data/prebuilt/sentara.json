@@ -1,0 +1,217 @@
+{
+  "organization": {
+    "id": "sentara-001",
+    "name": "Sentara Health",
+    "website_url": "https://www.sentara.com",
+    "industry": "Hospital & Health Care",
+    "estimated_num_employees": 30000,
+    "annual_revenue_printed": "$10.2B",
+    "short_description": "Sentara Health is an integrated, not-for-profit health system headquartered in Norfolk, Virginia. It includes 12 hospitals, a health plan with 1M+ members, a medical group, home health, and a college of health sciences — one of the few truly integrated delivery and financing systems in the US.",
+    "logo_url": "",
+    "founded_year": 1888,
+    "linkedin_url": "https://www.linkedin.com/company/sentara-healthcare",
+    "phone": "(757) 455-7000",
+    "city": "Norfolk",
+    "state": "Virginia",
+    "country": "United States"
+  },
+  "contacts": [
+    {
+      "id": "sh-001",
+      "first_name": "Michael",
+      "last_name": "Reagin",
+      "name": "Michael Reagin",
+      "title": "Chief Information & Technology Officer",
+      "linkedin_url": "https://www.linkedin.com/in/michaelreagin/",
+      "email": "",
+      "photo_url": "",
+      "organization_name": "Sentara Health",
+      "city": "Norfolk",
+      "state": "Virginia",
+      "departments": ["Information Technology"],
+      "seniority": "c_suite",
+      "tier": "decision_maker",
+      "reasoning": "CITO with dual technology and information mandate — direct authority over AI platform investments."
+    },
+    {
+      "id": "sh-002",
+      "first_name": "Howard",
+      "last_name": "Kern",
+      "name": "Howard Kern",
+      "title": "CEO",
+      "linkedin_url": "https://www.linkedin.com/in/howardkern/",
+      "email": "",
+      "photo_url": "",
+      "organization_name": "Sentara Health",
+      "city": "Norfolk",
+      "state": "Virginia",
+      "departments": ["Executive"],
+      "seniority": "c_suite",
+      "tier": "decision_maker",
+      "reasoning": "CEO of an integrated system — strategic decisions about technology investments flow through here."
+    },
+    {
+      "id": "sh-003",
+      "first_name": "Jennifer",
+      "last_name": "Watts",
+      "name": "Jennifer Watts",
+      "title": "VP, Digital Transformation & Innovation",
+      "linkedin_url": "https://www.linkedin.com/in/jenniferwatts/",
+      "email": "",
+      "photo_url": "",
+      "organization_name": "Sentara Health",
+      "city": "Norfolk",
+      "state": "Virginia",
+      "departments": ["Innovation", "Digital"],
+      "seniority": "vp",
+      "tier": "champion",
+      "reasoning": "VP Innovation is the ideal champion — actively evaluating new technologies to support Sentara's integrated model."
+    },
+    {
+      "id": "sh-004",
+      "first_name": "Matthew",
+      "last_name": "Goldberg",
+      "name": "Matthew Goldberg",
+      "title": "VP, Data & Analytics",
+      "linkedin_url": "https://www.linkedin.com/in/matthewgoldberg/",
+      "email": "",
+      "photo_url": "",
+      "organization_name": "Sentara Health",
+      "city": "Norfolk",
+      "state": "Virginia",
+      "departments": ["Data & Analytics"],
+      "seniority": "vp",
+      "tier": "champion",
+      "reasoning": "Data & analytics VP would champion AI tools that enhance their analytics capabilities across the integrated system."
+    },
+    {
+      "id": "sh-005",
+      "first_name": "Laura",
+      "last_name": "Chang",
+      "name": "Laura Chang",
+      "title": "Director, Health Plan Operations",
+      "linkedin_url": "https://www.linkedin.com/in/laurachang/",
+      "email": "",
+      "photo_url": "",
+      "organization_name": "Sentara Health",
+      "city": "Norfolk",
+      "state": "Virginia",
+      "departments": ["Health Plan", "Operations"],
+      "seniority": "director",
+      "tier": "evaluator",
+      "reasoning": "Health plan operations director can evaluate AI for claims, utilization management, and member engagement — unique integrated use case."
+    },
+    {
+      "id": "sh-006",
+      "first_name": "Brian",
+      "last_name": "Foster",
+      "name": "Brian Foster",
+      "title": "Director, Clinical Informatics",
+      "linkedin_url": "https://www.linkedin.com/in/brianfoster/",
+      "email": "",
+      "photo_url": "",
+      "organization_name": "Sentara Health",
+      "city": "Norfolk",
+      "state": "Virginia",
+      "departments": ["Clinical Informatics"],
+      "seniority": "director",
+      "tier": "evaluator",
+      "reasoning": "Clinical informatics bridges provider-side workflows with technology — evaluates clinical AI deployment feasibility."
+    },
+    {
+      "id": "sh-007",
+      "first_name": "Karen",
+      "last_name": "Dawson",
+      "name": "Karen Dawson",
+      "title": "VP, Compliance & Risk",
+      "linkedin_url": "https://www.linkedin.com/in/karendawson/",
+      "email": "",
+      "photo_url": "",
+      "organization_name": "Sentara Health",
+      "city": "Norfolk",
+      "state": "Virginia",
+      "departments": ["Compliance", "Risk"],
+      "seniority": "vp",
+      "tier": "blocker",
+      "reasoning": "Compliance VP for an integrated payer-provider system has dual regulatory scrutiny — must be addressed early."
+    }
+  ],
+  "signals": {
+    "ai_strategy": [
+      "Sentara leveraging AI for integrated care management across payer and provider operations",
+      "Investing in predictive models to identify high-risk members within their own health plan",
+      "Exploring AI-powered clinical decision support across 12 hospital sites",
+      "Digital front door initiative using AI for patient triage and navigation",
+      "Building unified data platform to enable AI across the integrated system"
+    ],
+    "hiring_signals": [
+      "Growing data analytics team with focus on population health AI",
+      "New digital transformation VP role filled in 2024",
+      "Hiring ML engineers for health plan analytics",
+      "Clinical informatics team expanding to support AI deployment"
+    ],
+    "recent_news": [
+      "Sentara completed merger expanding to 12 hospitals — creating integration challenges and opportunities",
+      "Announced $500M technology investment over 3 years post-merger",
+      "Health plan division reached 1M+ covered lives milestone",
+      "Launched new value-based care programs requiring advanced analytics",
+      "CEO highlighted 'integrated intelligence' as strategic priority at board meeting"
+    ],
+    "technology_stack": [
+      "Epic EHR across hospital network",
+      "Azure cloud infrastructure",
+      "Health plan on Facets claims platform",
+      "Tableau for business intelligence",
+      "Custom integration layer between payer and provider data"
+    ]
+  },
+  "plan": {
+    "executive_summary": "Sentara Health represents a uniquely compelling opportunity because of their integrated delivery and financing model — they are both a provider (12 hospitals) and a payer (1M+ health plan members). This integration creates data advantages and use cases that don't exist in standalone payers or providers.\n\nTheir recent $500M technology investment post-merger and the CEO's 'integrated intelligence' strategy signal significant budget allocation and executive commitment. The challenge of integrating newly merged hospitals with existing infrastructure creates an immediate need for AI-powered data harmonization and workflow automation.\n\nSentara is the type of account where a successful deployment creates a unique case study: AI spanning the full payer-provider continuum.",
+    "pain_product_fit": "1. PAYER-PROVIDER DATA INTEGRATION: Sentara has both claims data and clinical data in-house. AI can uniquely leverage this combined dataset for total cost of care analytics, risk adjustment, and care quality improvement.\n\n2. POST-MERGER INTEGRATION: 12 hospitals with varying systems, workflows, and cultures. AI-powered harmonization of clinical protocols, staffing optimization, and operational standardization.\n\n3. HEALTH PLAN AUTOMATION: Claims processing, prior authorization, and utilization management for 1M+ members. AI reduces administrative costs while improving speed.\n\n4. POPULATION HEALTH: As an integrated system, Sentara bears financial risk for their own members. AI-powered risk stratification and intervention targeting directly impacts their bottom line.\n\n5. DIGITAL FRONT DOOR: Patient-facing AI for scheduling, triage, and navigation across a complex multi-hospital system.",
+    "competitive_threats": "- EPIC: Expanding AI within their EHR may cover some clinical use cases\n- MICROSOFT: Azure partner with healthcare AI solutions competing for infrastructure\n- OPTUM/UHG: Competing integrated model with their own AI capabilities\n- HEALTH CATALYST: Strong analytics platform in the provider space\n- INTERNAL BUILD: $500M technology budget may fund internal development teams\n- CONSULTING: Merger integration consultants may influence technology selection",
+    "timing_urgency": "1. POST-MERGER WINDOW: Active integration of newly merged hospitals — technology decisions being made RIGHT NOW.\n2. BUDGET DEPLOYED: $500M technology investment is being allocated in phases — getting in during Phase 1 is critical.\n3. COMPETITIVE THREAT: Optum/UHG as an integrated competitor is investing billions in AI — Sentara must keep pace.\n4. VALUE-BASED CARE: New VBC contracts require analytics capabilities they may not yet have.\n5. REGULATORY: CMS interoperability requirements for integrated payer-providers create compliance-driven technology needs.",
+    "deal_strategy": "UNIQUE ANGLE: Sentara's integrated model means you can sell to BOTH the payer and provider side. Use the integration as the wedge.\n\nPHASE 1 — Enter through Jennifer Watts (VP Innovation) with a use case specific to payer-provider integration that no standalone payer or provider could replicate.\n\nPHASE 2 — Parallel tracks: Matthew Goldberg (Data & Analytics) for technical validation, Laura Chang (Health Plan Operations) for payer-side use cases.\n\nPHASE 3 — Build the integration story: show Michael Reagin (CITO) how AI can unify the data across their integrated model.\n\nPHASE 4 — Executive presentation to CEO Howard Kern focused on 'integrated intelligence' strategic vision.\n\nPHASE 5 — Pilot spanning payer and provider operations to demonstrate unique integrated value.",
+    "discovery_questions": [
+      "How are you connecting your health plan data with your clinical data across the 12 hospitals?",
+      "What's the biggest technology challenge from the recent merger integration?",
+      "How does your 'integrated intelligence' strategy translate to specific AI use cases?",
+      "Where in the $500M technology investment is AI/analytics prioritized?",
+      "How does the health plan division evaluate members who are also patients in your hospitals?",
+      "What's your current approach to risk stratification for your health plan members?",
+      "How do you standardize clinical workflows across newly merged hospital sites?",
+      "What would 'success' look like for AI across your integrated model in 12 months?"
+    ],
+    "roi_framework": "INTEGRATED MODEL ADVANTAGES:\n- Payer-provider data fusion: AI matching claims to clinical data identifies 15-20% more risk adjustment opportunities = $150-200M revenue impact on 1M members\n- Total cost of care reduction: Integrated AI reducing unnecessary utilization by 5% = $500M+ in savings\n\nPROVIDER OPERATIONS:\n- Clinical documentation AI: $45M+ annually across 12 hospitals (physician time savings)\n- Staffing optimization: 10% reduction in agency spend during post-merger transition = $20-30M\n\nHEALTH PLAN OPERATIONS:\n- Claims automation: 30% reduction in manual review = $15-20M annual savings\n- Member engagement: AI-powered health navigation reducing ER overuse by 8% = $40M+ savings\n\nPILOT: 90-day pilot connecting health plan risk data with clinical intervention data at 2 hospital sites. Demonstrate integrated AI value that no competitor can replicate.",
+    "first_touch_email": "Subject: AI for Sentara's Integrated Model — A Use Case No Standalone System Can Replicate\n\nHi Jennifer,\n\nSentara's integrated payer-provider model is rare — and it means you have a data advantage most health systems would envy. The question is whether your technology stack lets you actually USE that advantage at scale across all 12 hospitals and 1M+ health plan members.\n\nWe've helped integrated systems close the gap between having the data and acting on it — connecting claims intelligence to clinical workflows in real time. I'd love to share what that looks like specifically for an integrated model like Sentara's.\n\n20 minutes this week?\n\nBest,\nYuvraj"
+  },
+  "fit_score": [
+    {
+      "dimension": "Strategic Alignment",
+      "score": 9,
+      "reasoning": "Integrated payer-provider model with 'integrated intelligence' strategy creates unique and compelling alignment."
+    },
+    {
+      "dimension": "Budget Capacity",
+      "score": 9,
+      "reasoning": "$10.2B revenue with dedicated $500M technology investment post-merger — budget is there."
+    },
+    {
+      "dimension": "Technical Readiness",
+      "score": 6,
+      "reasoning": "Post-merger integration means systems are still being harmonized — readiness is improving but not yet mature."
+    },
+    {
+      "dimension": "Urgency / Timing",
+      "score": 9,
+      "reasoning": "Post-merger integration window, active budget deployment, and competitive pressure create strong urgency."
+    },
+    {
+      "dimension": "Champion Access",
+      "score": 8,
+      "reasoning": "VP Innovation and VP Data & Analytics are accessible entry points aligned with AI adoption."
+    }
+  ],
+  "overall_score": 8,
+  "generated_at": "2025-01-15T00:00:00Z",
+  "target_company": "openai"
+}
