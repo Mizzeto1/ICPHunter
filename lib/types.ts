@@ -20,6 +20,7 @@ export interface ApolloOrganization {
   id: string;
   name: string;
   website_url: string;
+  domain: string;
   industry: string;
   estimated_num_employees: number;
   annual_revenue_printed: string;

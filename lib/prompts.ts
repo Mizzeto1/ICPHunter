@@ -1,31 +1,24 @@
 import { CompanyConfig, ApolloContact, ApolloOrganization } from "./types";
 
-function formatValueProps(config: CompanyConfig, orgType: "payer" | "provider" | "both"): string {
-  if (orgType === "payer") {
-    return `VALUE PROPOSITIONS FOR PAYERS:\n${config.valueProps.payer.map((v) => `- ${v}`).join("\n")}`;
-  }
-  if (orgType === "provider") {
-    return `VALUE PROPOSITIONS FOR PROVIDERS:\n${config.valueProps.provider.map((v) => `- ${v}`).join("\n")}`;
-  }
-  return `VALUE PROPOSITIONS FOR PAYERS:\n${config.valueProps.payer.map((v) => `- ${v}`).join("\n")}\n\nVALUE PROPOSITIONS FOR PROVIDERS:\n${config.valueProps.provider.map((v) => `- ${v}`).join("\n")}`;
-}
-
-export function buildResearchPrompt(
-  orgName: string,
-  targetCompany: CompanyConfig,
-  orgType: "payer" | "provider" | "both"
+export function buildSignalsPrompt(
+  companyName: string,
+  config: CompanyConfig
 ): string {
-  return `You are an elite enterprise sales strategist specializing in selling AI/technology solutions to large healthcare organizations. You are researching "${orgName}" to build an account plan for selling ${targetCompany.name}'s products.
+  return `You are an elite enterprise sales strategist specializing in selling AI/technology solutions to large healthcare organizations. You are researching "${companyName}" to build an account plan for selling ${config.name}'s products.
 
-${targetCompany.name} — ${targetCompany.product}
-${targetCompany.tagline}
+${config.name} — ${config.product}
+${config.tagline}
 
-${formatValueProps(targetCompany, orgType)}
+VALUE PROPOSITIONS FOR PAYERS:
+${config.valueProps.payer.map((v) => `- ${v}`).join("\n")}
+
+VALUE PROPOSITIONS FOR PROVIDERS:
+${config.valueProps.provider.map((v) => `- ${v}`).join("\n")}
 
 KNOWN COMPETITORS IN THIS SPACE:
-${targetCompany.competitors.map((c) => `- ${c}`).join("\n")}
+${config.competitors.map((c) => `- ${c}`).join("\n")}
 
-Research "${orgName}" and provide a comprehensive analysis. Use web search to find:
+Research "${companyName}" and provide a comprehensive analysis. Use web search to find:
 1. Their current AI/technology initiatives and digital transformation strategy
 2. Recent news, partnerships, or announcements related to technology
 3. Any job postings related to AI, data science, or digital transformation
@@ -45,47 +38,83 @@ Return your findings as a JSON object with this exact structure:
 Return ONLY valid JSON, no markdown formatting or code blocks.`;
 }
 
-export function buildAccountPlanPrompt(
-  orgName: string,
-  targetCompany: CompanyConfig,
-  org: ApolloOrganization,
+export function buildSynthesisPrompt(
+  apolloCompany: ApolloOrganization,
+  contacts: ApolloContact[],
   signals: string,
-  orgType: "payer" | "provider" | "both"
+  config: CompanyConfig
 ): string {
-  return `You are an elite enterprise sales strategist. Build a detailed account plan for selling ${targetCompany.name}'s products to ${orgName}.
+  const contactList = contacts.length > 0
+    ? contacts
+        .map(
+          (c) =>
+            `- ${c.name} | ${c.title} | Seniority: ${c.seniority} | Departments: ${c.departments.join(", ")} | LinkedIn: ${c.linkedin_url || "N/A"}`
+        )
+        .join("\n")
+    : "No contacts found in Apollo.";
 
-ABOUT ${targetCompany.name.toUpperCase()}:
-Product: ${targetCompany.product}
-Tagline: ${targetCompany.tagline}
+  return `You are an elite enterprise sales strategist. Synthesize all the data below into a complete account plan for selling ${config.name}'s products to ${apolloCompany.name}.
 
-${formatValueProps(targetCompany, orgType)}
+===== ABOUT ${config.name.toUpperCase()} =====
+Product: ${config.product}
+Tagline: ${config.tagline}
 
-KNOWN COMPETITORS:
-${targetCompany.competitors.map((c) => `- ${c}`).join("\n")}
+Value Props for Payers:
+${config.valueProps.payer.map((v) => `- ${v}`).join("\n")}
 
-ABOUT ${orgName.toUpperCase()}:
-Industry: ${org.industry}
-Employees: ${org.estimated_num_employees}
-Revenue: ${org.annual_revenue_printed}
-Description: ${org.short_description}
-Location: ${org.city}, ${org.state}
+Value Props for Providers:
+${config.valueProps.provider.map((v) => `- ${v}`).join("\n")}
 
-AI & MARKET SIGNALS:
+Known Competitors:
+${config.competitors.map((c) => `- ${c}`).join("\n")}
+
+===== ABOUT ${apolloCompany.name.toUpperCase()} (from Apollo) =====
+Industry: ${apolloCompany.industry}
+Employees: ${apolloCompany.estimated_num_employees}
+Revenue: ${apolloCompany.annual_revenue_printed}
+Description: ${apolloCompany.short_description}
+Location: ${[apolloCompany.city, apolloCompany.state].filter(Boolean).join(", ")}
+Website: ${apolloCompany.website_url}
+
+===== CONTACTS AT ${apolloCompany.name.toUpperCase()} (from Apollo) =====
+${contactList}
+
+===== MARKET & AI SIGNALS (from web research) =====
 ${signals}
 
-Build a comprehensive account plan. Reference ${targetCompany.name}'s SPECIFIC product capabilities and value propositions when mapping to ${orgName}'s pain points. Address the known competitors by name.
+===== YOUR TASK =====
+Synthesize everything above into a complete, actionable account plan. You must:
 
-Return as JSON with this exact structure:
+1. Determine whether ${apolloCompany.name} is a PAYER, PROVIDER, or INTEGRATED system and select the most relevant value propositions accordingly.
+
+2. Categorize EVERY contact into a buying committee tier:
+   - decision_maker: C-suite or SVP who signs the check
+   - champion: Director/VP who will internally advocate
+   - evaluator: Technical leads who assess the product
+   - blocker: People who may slow the deal (procurement, compliance, security, legal)
+
+3. Build the account plan with specific references to ${config.name}'s products and ${apolloCompany.name}'s situation.
+
+4. Score account fit across 5 dimensions.
+
+Return as a SINGLE JSON object with this exact structure:
 {
+  "contacts": [
+    {
+      "name": "<full name exactly as listed above>",
+      "tier": "<decision_maker|champion|evaluator|blocker>",
+      "reasoning": "<one sentence>"
+    }
+  ],
   "plan": {
-    "executive_summary": "<2-3 paragraph strategic overview of why ${orgName} is a strong target for ${targetCompany.name}>",
-    "pain_product_fit": "<Detailed mapping of ${orgName}'s pain points to ${targetCompany.name}'s specific product capabilities. Be specific about WHICH product/feature solves WHICH pain.>",
-    "competitive_threats": "<Analysis of the known competitors listed above plus any others likely in the deal. For EACH competitor, explain their specific threat and how to differentiate.>",
-    "timing_urgency": "<Why NOW is the right time to engage. Reference specific signals, fiscal cycles, regulatory deadlines, or strategic initiatives>",
-    "deal_strategy": "<Step-by-step approach: who to contact first, what messaging to use, how to navigate the org, what proof points to lead with>",
-    "discovery_questions": ["<8-10 sharp discovery questions that demonstrate deep healthcare knowledge and uncover real pain>"],
-    "roi_framework": "<Specific ROI model: what metrics to measure, realistic benchmarks, how to build the business case for ${targetCompany.name} at ${orgName}>",
-    "first_touch_email": "<A compelling, personalized cold email to the most senior relevant contact. Reference specific ${orgName} initiatives and ${targetCompany.name} capabilities. Under 150 words.>"
+    "executive_summary": "<2-3 paragraph strategic overview>",
+    "pain_product_fit": "<Detailed mapping of pains to SPECIFIC ${config.name} products/features>",
+    "competitive_threats": "<For EACH known competitor, their specific threat and how to differentiate>",
+    "timing_urgency": "<Why NOW — reference specific signals, fiscal cycles, regulatory deadlines>",
+    "deal_strategy": "<Step-by-step: who to contact first, messaging, org navigation, proof points>",
+    "discovery_questions": ["<8-10 sharp questions demonstrating deep healthcare knowledge>"],
+    "roi_framework": "<Specific ROI model with metrics, benchmarks, and business case approach>",
+    "first_touch_email": "<Personalized cold email referencing ${apolloCompany.name} initiatives and ${config.name} capabilities. Under 150 words.>"
   },
   "fit_score": [
     {"dimension": "Strategic Alignment", "score": <1-10>, "reasoning": "<one line>"},
@@ -99,42 +128,51 @@ Return as JSON with this exact structure:
 Return ONLY valid JSON, no markdown formatting or code blocks.`;
 }
 
-export function buildContactCategorizationPrompt(
-  contacts: ApolloContact[],
-  orgName: string,
-  targetCompany: CompanyConfig,
-  orgType: "payer" | "provider" | "both"
+export function buildWebOnlyPlanPrompt(
+  companyName: string,
+  signals: string,
+  config: CompanyConfig
 ): string {
-  const contactList = contacts
-    .map(
-      (c) =>
-        `- ${c.name} | ${c.title} | Seniority: ${c.seniority} | Departments: ${c.departments.join(", ")}`
-    )
-    .join("\n");
+  return `You are an elite enterprise sales strategist. Build an account plan for selling ${config.name}'s products to "${companyName}" using ONLY web research signals (no contact data available).
 
-  return `You are an enterprise sales strategist. Categorize these contacts at ${orgName} into a buying committee for selling ${targetCompany.name}'s products.
+===== ABOUT ${config.name.toUpperCase()} =====
+Product: ${config.product}
+Tagline: ${config.tagline}
 
-${targetCompany.name} — ${targetCompany.product}
+Value Props for Payers:
+${config.valueProps.payer.map((v) => `- ${v}`).join("\n")}
 
-${formatValueProps(targetCompany, orgType)}
+Value Props for Providers:
+${config.valueProps.provider.map((v) => `- ${v}`).join("\n")}
 
-CONTACTS:
-${contactList}
+Known Competitors:
+${config.competitors.map((c) => `- ${c}`).join("\n")}
 
-Categorize each person into exactly one tier:
-- decision_maker: C-suite or SVP who signs the check. Usually CIO, CTO, CDO, CMO, or CEO.
-- champion: Director/VP level who will internally advocate. Usually in IT, digital, data, innovation, or the operational area the product serves.
-- evaluator: Technical leads who assess the product. Usually directors or senior managers in relevant departments.
-- blocker: People who might slow or stop the deal (procurement, compliance, security, legal, existing vendor relationships).
+===== MARKET & AI SIGNALS FOR "${companyName.toUpperCase()}" =====
+${signals}
 
-Return as JSON array. Include ALL contacts from the list above:
-[
-  {
-    "name": "<full name>",
-    "tier": "<decision_maker|champion|evaluator|blocker>",
-    "reasoning": "<one sentence explaining why this person is in this tier>"
-  }
-]
+Build an account plan based on the available signals. Determine whether "${companyName}" is a payer, provider, or integrated system and select the most relevant value propositions.
+
+Return as JSON:
+{
+  "plan": {
+    "executive_summary": "<2-3 paragraph strategic overview>",
+    "pain_product_fit": "<Map pains to SPECIFIC ${config.name} products/features>",
+    "competitive_threats": "<For EACH known competitor, their threat and differentiation>",
+    "timing_urgency": "<Why NOW>",
+    "deal_strategy": "<Approach without specific contacts>",
+    "discovery_questions": ["<8-10 sharp questions>"],
+    "roi_framework": "<ROI model with metrics and benchmarks>",
+    "first_touch_email": "<Personalized cold email. Under 150 words.>"
+  },
+  "fit_score": [
+    {"dimension": "Strategic Alignment", "score": <1-10>, "reasoning": "<one line>"},
+    {"dimension": "Budget Capacity", "score": <1-10>, "reasoning": "<one line>"},
+    {"dimension": "Technical Readiness", "score": <1-10>, "reasoning": "<one line>"},
+    {"dimension": "Urgency / Timing", "score": <1-10>, "reasoning": "<one line>"},
+    {"dimension": "Champion Access", "score": <1-10>, "reasoning": "<one line>"}
+  ]
+}
 
 Return ONLY valid JSON, no markdown formatting or code blocks.`;
 }

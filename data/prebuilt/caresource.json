@@ -3,6 +3,7 @@
     "id": "caresource-001",
     "name": "CareSource",
     "website_url": "https://www.caresource.com",
+    "domain": "caresource.com",
     "industry": "Health Insurance",
     "estimated_num_employees": 4500,
     "annual_revenue_printed": "$14B",

@@ -3,6 +3,7 @@
     "id": "kaiser-001",
     "name": "Kaiser Permanente",
     "website_url": "https://www.kaiserpermanente.org",
+    "domain": "kaiserpermanente.org",
     "industry": "Hospital & Health Care",
     "estimated_num_employees": 305000,
     "annual_revenue_printed": "$100.8B",

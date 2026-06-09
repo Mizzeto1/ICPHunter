@@ -20,7 +20,7 @@ async function apolloFetch(path: string, body: Record<string, unknown>) {
   return res.json();
 }
 
-export async function searchOrganization(
+export async function searchApolloCompany(
   name: string
 ): Promise<ApolloOrganization | null> {
   const data = await apolloFetch("/mixed_companies/search", {
@@ -36,6 +36,7 @@ export async function searchOrganization(
     id: org.id,
     name: org.name,
     website_url: org.website_url || "",
+    domain: org.primary_domain || org.domain || "",
     industry: org.industry || "",
     estimated_num_employees: org.estimated_num_employees || 0,
     annual_revenue_printed: org.annual_revenue_printed || "N/A",
@@ -50,12 +51,12 @@ export async function searchOrganization(
   };
 }
 
-export async function searchContacts(
-  organizationName: string,
+export async function searchApolloContacts(
+  domain: string,
   titles: string[]
 ): Promise<ApolloContact[]> {
   const data = await apolloFetch("/mixed_people/search", {
-    q_organization_name: organizationName,
+    q_organization_domains: [domain],
     person_titles: titles,
     page: 1,
     per_page: 25,
@@ -72,21 +73,11 @@ export async function searchContacts(
       linkedin_url: (p.linkedin_url as string) || "",
       email: (p.email as string) || "",
       photo_url: (p.photo_url as string) || "",
-      organization_name: (p.organization_name as string) || organizationName,
+      organization_name: (p.organization_name as string) || "",
       city: (p.city as string) || "",
       state: (p.state as string) || "",
       departments: (p.departments as string[]) || [],
       seniority: (p.seniority as string) || "",
     })
   );
-}
-
-export function getTitlesForOrgType(
-  targetTitles: { payer: string[]; provider: string[] },
-  orgType: "payer" | "provider" | "both"
-): string[] {
-  if (orgType === "payer") return targetTitles.payer;
-  if (orgType === "provider") return targetTitles.provider;
-  const combined = new Set([...targetTitles.payer, ...targetTitles.provider]);
-  return Array.from(combined);
 }

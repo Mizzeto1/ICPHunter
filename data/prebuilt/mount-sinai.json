@@ -3,6 +3,7 @@
     "id": "mount-sinai-001",
     "name": "Mount Sinai Health System",
     "website_url": "https://www.mountsinai.org",
+    "domain": "mountsinai.org",
     "industry": "Hospital & Health Care",
     "estimated_num_employees": 48000,
     "annual_revenue_printed": "$9.7B",

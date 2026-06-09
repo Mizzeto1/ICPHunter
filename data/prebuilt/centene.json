@@ -3,6 +3,7 @@
     "id": "centene-001",
     "name": "Centene Corporation",
     "website_url": "https://www.centene.com",
+    "domain": "centene.com",
     "industry": "Health Insurance",
     "estimated_num_employees": 74000,
     "annual_revenue_printed": "$154B",
