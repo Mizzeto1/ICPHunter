@@ -22,17 +22,18 @@ export default function FitScore({ fitScore, overallScore }: FitScoreProps) {
   return (
     <div className="rounded-xl border border-dark-700 bg-dark-900 p-6">
       <div className="flex items-center justify-between mb-5">
-        <h3 className="text-lg font-semibold text-white">Fit Score</h3>
+        <h3 className="text-lg font-semibold text-white tracking-tight">Fit Score</h3>
         <div
-          className={`w-14 h-14 rounded-xl flex items-center justify-center text-2xl font-bold ${
-            overallScore >= 4
+          className={`px-3 py-1.5 rounded-xl font-bold ${
+            overallScore >= 80
               ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"
-              : overallScore >= 3
+              : overallScore >= 60
               ? "bg-amber-500/10 text-amber-400 border border-amber-500/20"
               : "bg-red-500/10 text-red-400 border border-red-500/20"
           }`}
         >
-          {overallScore}
+          <span className="text-2xl">{overallScore}</span>
+          <span className="text-sm font-medium opacity-60">/100</span>
         </div>
       </div>
       <div className="space-y-4">

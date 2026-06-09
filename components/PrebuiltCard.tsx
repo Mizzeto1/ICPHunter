@@ -41,9 +41,9 @@ export default function PrebuiltCard({
         <div className="flex items-center gap-1 shrink-0 ml-3">
           <div
             className={`w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold ${
-              score >= 8
+              score >= 80
                 ? "bg-emerald-500/10 text-emerald-400"
-                : score >= 6
+                : score >= 60
                 ? "bg-amber-500/10 text-amber-400"
                 : "bg-red-500/10 text-red-400"
             }`}

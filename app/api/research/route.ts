@@ -76,7 +76,7 @@ function computeOverallScore(fitScore: FitScore): number {
     fitScore.strategicValue.score,
   ];
   const sum = scores.reduce((a, b) => a + b, 0);
-  return Math.round((sum / scores.length) * 10) / 10;
+  return Math.round((sum / scores.length) * 20);
 }
 
 export async function POST(request: NextRequest) {
