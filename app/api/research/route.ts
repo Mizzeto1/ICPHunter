@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { searchOrganization, searchContacts, HEALTHCARE_TITLES } from "@/lib/apollo";
+import { searchOrganization, searchContacts, getTitlesForOrgType } from "@/lib/apollo";
 import {
   researchWithWebSearch,
   generateWithClaude,
@@ -22,6 +22,25 @@ import {
 
 export const maxDuration = 60;
 
+type OrgType = "payer" | "provider" | "both";
+
+function inferOrgType(org: ApolloOrganization | null): OrgType {
+  if (!org) return "both";
+  const industry = (org.industry || "").toLowerCase();
+  const desc = (org.short_description || "").toLowerCase();
+  const combined = `${industry} ${desc}`;
+
+  const payerSignals = ["insurance", "payer", "health plan", "managed care", "medicaid", "medicare advantage"];
+  const providerSignals = ["hospital", "health system", "medical center", "clinic", "physician", "ambulatory"];
+  const isPayer = payerSignals.some((s) => combined.includes(s));
+  const isProvider = providerSignals.some((s) => combined.includes(s));
+
+  if (isPayer && isProvider) return "both";
+  if (isPayer) return "payer";
+  if (isProvider) return "provider";
+  return "both";
+}
+
 export async function POST(request: NextRequest) {
   try {
     const { orgName, targetCompany } = await request.json();
@@ -41,10 +60,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const [org, contacts] = await Promise.all([
-      searchOrganization(orgName),
-      searchContacts(orgName, HEALTHCARE_TITLES),
-    ]);
+    const org = await searchOrganization(orgName);
 
     const fallbackOrg: ApolloOrganization = org || {
       id: "",
@@ -63,8 +79,14 @@ export async function POST(request: NextRequest) {
       country: "",
     };
 
-    const researchPrompt = buildResearchPrompt(orgName, config);
-    const signalsRaw = await researchWithWebSearch(researchPrompt);
+    const orgType = inferOrgType(fallbackOrg);
+    const titles = getTitlesForOrgType(config.targetTitles, orgType);
+
+    const [contacts, signalsRaw] = await Promise.all([
+      searchContacts(orgName, titles),
+      researchWithWebSearch(buildResearchPrompt(orgName, config, orgType)),
+    ]);
+
     let signals: AISignals;
     try {
       const parsed = parseJSON<{ signals: AISignals }>(signalsRaw);
@@ -80,11 +102,11 @@ export async function POST(request: NextRequest) {
 
     const [planRaw, categorizationRaw] = await Promise.all([
       generateWithClaude(
-        buildAccountPlanPrompt(orgName, config, fallbackOrg, JSON.stringify(signals))
+        buildAccountPlanPrompt(orgName, config, fallbackOrg, JSON.stringify(signals), orgType)
       ),
       contacts.length > 0
         ? generateWithClaude(
-            buildContactCategorizationPrompt(contacts, orgName, config)
+            buildContactCategorizationPrompt(contacts, orgName, config, orgType)
           )
         : Promise.resolve("[]"),
     ]);

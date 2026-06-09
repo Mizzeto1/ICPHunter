@@ -1,11 +1,19 @@
 export interface CompanyConfig {
   slug: string;
   name: string;
-  loomUrl: string;
+  product: string;
   tagline: string;
-  healthcareVertical: string;
-  products: string[];
-  idealCustomerProfile: string;
+  loomUrl: string;
+  accentColor: string;
+  valueProps: {
+    payer: string[];
+    provider: string[];
+  };
+  competitors: string[];
+  targetTitles: {
+    payer: string[];
+    provider: string[];
+  };
 }
 
 export interface ApolloOrganization {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, CSSProperties } from "react";
 import { useParams } from "next/navigation";
 import LoomEmbed from "@/components/LoomEmbed";
 import SearchBar from "@/components/SearchBar";
@@ -81,11 +81,13 @@ export default function CompanyPage() {
         setConfig({
           slug: companySlug,
           name: companySlug.charAt(0).toUpperCase() + companySlug.slice(1),
-          loomUrl: "",
+          product: "AI Solutions",
           tagline: `Healthcare Account Intelligence for ${companySlug}`,
-          healthcareVertical: "Healthcare AI",
-          products: ["AI Solutions"],
-          idealCustomerProfile: "Large healthcare organizations",
+          loomUrl: "",
+          accentColor: "#3B82F6",
+          valueProps: { payer: [], provider: [] },
+          competitors: [],
+          targetTitles: { payer: [], provider: [] },
         });
       }
     }
@@ -166,23 +168,36 @@ export default function CompanyPage() {
     );
   }
 
+  const accent = config.accentColor;
+  const accentStyle = { "--accent": accent } as CSSProperties;
+
   return (
-    <div className="min-h-screen bg-dark-950">
+    <div className="min-h-screen bg-dark-950" style={accentStyle}>
+      {/* Accent gradient at top */}
+      <div
+        className="h-1 w-full"
+        style={{ background: `linear-gradient(90deg, ${accent}, ${accent}80, transparent)` }}
+      />
+
       <header className="border-b border-dark-800 bg-dark-950/80 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-lg font-bold text-white">
                 Healthcare Account Intelligence{" "}
-                <span className="text-blue-400">· {config.name}</span>
+                <span style={{ color: accent }}>· {config.name}</span>
               </h1>
               <p className="text-dark-400 text-sm mt-0.5">
+                {config.product}
+              </p>
+              <p className="text-dark-500 text-xs mt-0.5">
                 Built by Yuvraj · Goldman Sachs → Mizzeto (Healthcare AI) ·{" "}
                 <a
                   href="https://www.linkedin.com/in/yuvrajwalia/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-400 hover:underline"
+                  className="hover:underline"
+                  style={{ color: accent }}
                 >
                   LinkedIn
                 </a>
@@ -197,6 +212,70 @@ export default function CompanyPage() {
         <section>
           <LoomEmbed url={config.loomUrl} title={config.tagline} />
         </section>
+
+        {/* Value Props */}
+        {(config.valueProps.payer.length > 0 || config.valueProps.provider.length > 0) && (
+          <section className="rounded-xl border border-dark-700 bg-dark-900 p-6">
+            <h2 className="text-lg font-semibold text-white mb-4">
+              What {config.name} Sells Into Healthcare
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {config.valueProps.payer.length > 0 && (
+                <div>
+                  <h3 className="text-sm font-medium text-dark-300 mb-3 flex items-center gap-2">
+                    <span
+                      className="w-2 h-2 rounded-full"
+                      style={{ backgroundColor: accent }}
+                    />
+                    For Payers
+                  </h3>
+                  <ul className="space-y-2">
+                    {config.valueProps.payer.map((prop, i) => (
+                      <li key={i} className="text-dark-400 text-sm flex items-start gap-2">
+                        <span className="text-dark-600 mt-0.5 shrink-0">-</span>
+                        {prop}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {config.valueProps.provider.length > 0 && (
+                <div>
+                  <h3 className="text-sm font-medium text-dark-300 mb-3 flex items-center gap-2">
+                    <span
+                      className="w-2 h-2 rounded-full"
+                      style={{ backgroundColor: accent }}
+                    />
+                    For Providers
+                  </h3>
+                  <ul className="space-y-2">
+                    {config.valueProps.provider.map((prop, i) => (
+                      <li key={i} className="text-dark-400 text-sm flex items-start gap-2">
+                        <span className="text-dark-600 mt-0.5 shrink-0">-</span>
+                        {prop}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+            {config.competitors.length > 0 && (
+              <div className="mt-6 pt-4 border-t border-dark-800">
+                <h3 className="text-sm font-medium text-dark-300 mb-3">
+                  Competitive Landscape
+                </h3>
+                <ul className="space-y-1.5">
+                  {config.competitors.map((comp, i) => (
+                    <li key={i} className="text-dark-500 text-sm flex items-start gap-2">
+                      <span className="text-dark-600 mt-0.5 shrink-0">-</span>
+                      {comp}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </section>
+        )}
 
         {/* Search Bar */}
         <section>

@@ -81,32 +81,12 @@ export async function searchContacts(
   );
 }
 
-export const HEALTHCARE_TITLES = [
-  "Chief Information Officer",
-  "Chief Technology Officer",
-  "Chief Digital Officer",
-  "Chief Data Officer",
-  "Chief Medical Officer",
-  "Chief Medical Information Officer",
-  "VP Information Technology",
-  "VP Digital Transformation",
-  "VP Engineering",
-  "VP Data",
-  "VP Analytics",
-  "VP Innovation",
-  "VP Clinical Informatics",
-  "Director AI",
-  "Director Machine Learning",
-  "Director Data Science",
-  "Director Information Technology",
-  "Director Digital",
-  "Director Innovation",
-  "Director Analytics",
-  "Director Clinical Informatics",
-  "Head of AI",
-  "Head of Data",
-  "Head of Engineering",
-  "Head of Digital",
-  "Senior Director Technology",
-  "Senior Director Engineering",
-];
+export function getTitlesForOrgType(
+  targetTitles: { payer: string[]; provider: string[] },
+  orgType: "payer" | "provider" | "both"
+): string[] {
+  if (orgType === "payer") return targetTitles.payer;
+  if (orgType === "provider") return targetTitles.provider;
+  const combined = new Set([...targetTitles.payer, ...targetTitles.provider]);
+  return Array.from(combined);
+}
