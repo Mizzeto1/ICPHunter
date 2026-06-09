@@ -1,6 +1,6 @@
 import { CompanyConfig } from "@/lib/types";
 
-const config: CompanyConfig = {
+export const config: CompanyConfig = {
   slug: "elevenlabs",
   name: "ElevenLabs",
   product: "AI Voice Platform — Text-to-Speech, Voice Cloning & Conversational AI",
@@ -54,4 +54,3 @@ const config: CompanyConfig = {
   },
 };
 
-export default config;

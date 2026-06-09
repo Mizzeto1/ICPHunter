@@ -1,6 +1,6 @@
 import { CompanyConfig } from "@/lib/types";
 
-const config: CompanyConfig = {
+export const config: CompanyConfig = {
   slug: "innovaccer",
   name: "Innovaccer",
   product: "Health Cloud — Data Platform, Care Management & Patient Engagement",
@@ -53,4 +53,3 @@ const config: CompanyConfig = {
   },
 };
 
-export default config;

@@ -1,6 +1,6 @@
 import { CompanyConfig } from "@/lib/types";
 
-const config: CompanyConfig = {
+export const config: CompanyConfig = {
   slug: "cohere",
   name: "Cohere Health",
   product: "AI-Powered Prior Authorization & Utilization Management Platform",
@@ -53,4 +53,3 @@ const config: CompanyConfig = {
   },
 };
 
-export default config;

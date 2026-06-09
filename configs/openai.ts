@@ -1,6 +1,6 @@
 import { CompanyConfig } from "@/lib/types";
 
-const config: CompanyConfig = {
+export const config: CompanyConfig = {
   slug: "openai",
   name: "OpenAI",
   product: "ChatGPT Enterprise & OpenAI API",
@@ -55,4 +55,3 @@ const config: CompanyConfig = {
   },
 };
 
-export default config;

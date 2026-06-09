@@ -1,8 +1,8 @@
 import { CompanyConfig } from "@/lib/types";
-import openai from "./openai";
-import cohere from "./cohere";
-import elevenlabs from "./elevenlabs";
-import innovaccer from "./innovaccer";
+import { config as openai } from "./openai";
+import { config as cohere } from "./cohere";
+import { config as elevenlabs } from "./elevenlabs";
+import { config as innovaccer } from "./innovaccer";
 
 const configs: Record<string, CompanyConfig> = {
   openai,
