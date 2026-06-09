@@ -31,23 +31,27 @@ const tierStyles: Record<string, { bg: string; text: string; label: string }> = 
 
 export default function PersonCard({ contact }: PersonCardProps) {
   const style = tierStyles[contact.tier] || tierStyles.evaluator;
+  const initials = contact.name
+    .split(" ")
+    .map((n) => n.charAt(0))
+    .slice(0, 2)
+    .join("");
 
   return (
     <div className={`p-4 rounded-lg border ${style.bg} transition-all hover:scale-[1.01]`}>
       <div className="flex items-start justify-between mb-2">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-full bg-dark-700 flex items-center justify-center text-dark-300 text-sm font-bold shrink-0">
-            {contact.first_name?.charAt(0)}
-            {contact.last_name?.charAt(0)}
+            {initials}
           </div>
           <div>
             <div className="flex items-center gap-2">
               <h4 className="text-sm font-semibold text-white">
                 {contact.name}
               </h4>
-              {contact.linkedin_url && (
+              {contact.linkedinUrl && (
                 <a
-                  href={contact.linkedin_url}
+                  href={contact.linkedinUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-400 hover:text-blue-300"

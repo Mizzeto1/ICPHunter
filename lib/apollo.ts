@@ -1,40 +1,30 @@
 import { ApolloOrganization, ApolloContact } from "./types";
 
-const APOLLO_API_BASE = "https://api.apollo.io/v1";
-
-async function apolloFetch(path: string, body: Record<string, unknown>) {
-  const res = await fetch(`${APOLLO_API_BASE}${path}`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "X-Api-Key": process.env.APOLLO_API_KEY!,
-    },
-    body: JSON.stringify(body),
-  });
-
-  if (!res.ok) {
-    const text = await res.text();
-    throw new Error(`Apollo API error (${res.status}): ${text}`);
-  }
-
-  return res.json();
-}
+const APOLLO_BASE = "https://api.apollo.io/v1";
+const headers = {
+  "Content-Type": "application/json",
+  "X-Api-Key": process.env.APOLLO_API_KEY!,
+};
 
 export async function searchApolloCompany(
   name: string
 ): Promise<ApolloOrganization | null> {
-  const data = await apolloFetch("/mixed_companies/search", {
-    q_organization_name: name,
-    page: 1,
-    per_page: 1,
+  const res = await fetch(`${APOLLO_BASE}/mixed_companies/search`, {
+    method: "POST",
+    headers,
+    body: JSON.stringify({
+      q_organization_name: name,
+      page: 1,
+      per_page: 1,
+    }),
   });
-
+  const data = await res.json();
   const org = data.organizations?.[0] || data.accounts?.[0];
   if (!org) return null;
 
   return {
-    id: org.id,
-    name: org.name,
+    id: org.id || "",
+    name: org.name || "",
     website_url: org.website_url || "",
     domain: org.primary_domain || org.domain || "",
     industry: org.industry || "",
@@ -55,29 +45,26 @@ export async function searchApolloContacts(
   domain: string,
   titles: string[]
 ): Promise<ApolloContact[]> {
-  const data = await apolloFetch("/mixed_people/search", {
-    q_organization_domains: [domain],
-    person_titles: titles,
-    page: 1,
-    per_page: 25,
-  });
+  const uniqueTitles = Array.from(new Set(titles));
 
-  const people = data.people || [];
-  return people.map(
+  const res = await fetch(`${APOLLO_BASE}/mixed_people/search`, {
+    method: "POST",
+    headers,
+    body: JSON.stringify({
+      q_organization_domains: [domain],
+      person_titles: uniqueTitles,
+      page: 1,
+      per_page: 25,
+    }),
+  });
+  const data = await res.json();
+  return (data.people || []).map(
     (p: Record<string, unknown>): ApolloContact => ({
-      id: (p.id as string) || "",
-      first_name: (p.first_name as string) || "",
-      last_name: (p.last_name as string) || "",
-      name: (p.name as string) || `${p.first_name} ${p.last_name}`,
+      name: `${p.first_name || ""} ${p.last_name || ""}`.trim() || (p.name as string) || "",
       title: (p.title as string) || "",
-      linkedin_url: (p.linkedin_url as string) || "",
-      email: (p.email as string) || "",
-      photo_url: (p.photo_url as string) || "",
-      organization_name: (p.organization_name as string) || "",
-      city: (p.city as string) || "",
-      state: (p.state as string) || "",
-      departments: (p.departments as string[]) || [],
+      linkedinUrl: (p.linkedin_url as string) || "",
       seniority: (p.seniority as string) || "",
+      department: ((p.departments as string[]) || [])[0] || "Unknown",
     })
   );
 }

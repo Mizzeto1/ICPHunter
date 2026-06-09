@@ -35,24 +35,22 @@ export interface ApolloOrganization {
 }
 
 export interface ApolloContact {
-  id: string;
-  first_name: string;
-  last_name: string;
   name: string;
   title: string;
-  linkedin_url: string;
-  email: string;
-  photo_url: string;
-  organization_name: string;
-  city: string;
-  state: string;
-  departments: string[];
+  linkedinUrl: string;
   seniority: string;
+  department: string;
 }
 
 export type ContactTier = "decision_maker" | "champion" | "evaluator" | "blocker";
 
 export interface CategorizedContact extends ApolloContact {
+  tier: ContactTier;
+  reasoning: string;
+}
+
+export interface SuggestedTitle {
+  title: string;
   tier: ContactTier;
   reasoning: string;
 }
@@ -84,6 +82,7 @@ export interface AISignals {
 export interface ResearchResult {
   organization: ApolloOrganization;
   contacts: CategorizedContact[];
+  suggested_titles: SuggestedTitle[];
   signals: AISignals;
   plan: AccountPlan;
   fit_score: FitDimension[];

@@ -7,6 +7,8 @@ interface CompanyOverviewProps {
 }
 
 export default function CompanyOverview({ org }: CompanyOverviewProps) {
+  const hasApolloData = !!org.domain;
+
   const stats = [
     { label: "Industry", value: org.industry || "Healthcare" },
     {
@@ -25,7 +27,7 @@ export default function CompanyOverview({ org }: CompanyOverviewProps) {
       value:
         [org.city, org.state].filter(Boolean).join(", ") || "United States",
     },
-  ];
+  ].filter((s) => hasApolloData || s.value !== "N/A");
 
   return (
     <div className="rounded-xl border border-dark-700 bg-dark-900 p-6">
@@ -64,6 +66,11 @@ export default function CompanyOverview({ org }: CompanyOverviewProps) {
                 LinkedIn
               </a>
             )}
+            {!hasApolloData && (
+              <span className="px-2 py-0.5 rounded text-xs font-medium bg-dark-800 text-dark-400 border border-dark-700">
+                Web research only
+              </span>
+            )}
           </div>
         </div>
       </div>
@@ -72,16 +79,18 @@ export default function CompanyOverview({ org }: CompanyOverviewProps) {
           {org.short_description}
         </p>
       )}
-      <div className="grid grid-cols-2 sm:grid-cols-5 gap-4">
-        {stats.map((stat) => (
-          <div key={stat.label}>
-            <p className="text-dark-500 text-xs uppercase tracking-wide mb-1">
-              {stat.label}
-            </p>
-            <p className="text-dark-200 text-sm font-medium">{stat.value}</p>
-          </div>
-        ))}
-      </div>
+      {stats.length > 0 && (
+        <div className="grid grid-cols-2 sm:grid-cols-5 gap-4">
+          {stats.map((stat) => (
+            <div key={stat.label}>
+              <p className="text-dark-500 text-xs uppercase tracking-wide mb-1">
+                {stat.label}
+              </p>
+              <p className="text-dark-200 text-sm font-medium">{stat.value}</p>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

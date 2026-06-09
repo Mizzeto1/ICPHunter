@@ -18,142 +18,79 @@
   },
   "contacts": [
     {
-      "id": "c-001",
-      "first_name": "Kevin",
-      "last_name": "Basco",
       "name": "Kevin Basco",
       "title": "Chief Information Officer",
-      "linkedin_url": "https://www.linkedin.com/in/kevinbasco/",
-      "email": "",
-      "photo_url": "",
-      "organization_name": "Centene Corporation",
-      "city": "St. Louis",
-      "state": "Missouri",
-      "departments": ["Information Technology"],
+      "linkedinUrl": "https://www.linkedin.com/in/kevinbasco/",
       "seniority": "c_suite",
+      "department": "Information Technology",
       "tier": "decision_maker",
       "reasoning": "CIO with authority over technology investments and AI infrastructure. Key budget holder for enterprise AI initiatives."
     },
     {
-      "id": "c-002",
-      "first_name": "Shannon",
-      "last_name": "Eusey",
       "name": "Shannon Eusey",
       "title": "Chief Data & Analytics Officer",
-      "linkedin_url": "https://www.linkedin.com/in/shannoneusey/",
-      "email": "",
-      "photo_url": "",
-      "organization_name": "Centene Corporation",
-      "city": "St. Louis",
-      "state": "Missouri",
-      "departments": ["Data & Analytics"],
+      "linkedinUrl": "https://www.linkedin.com/in/shannoneusey/",
       "seniority": "c_suite",
+      "department": "Data & Analytics",
       "tier": "decision_maker",
       "reasoning": "CDAO owns the data strategy and analytics platform. Direct decision-maker for AI/ML tooling and data infrastructure."
     },
     {
-      "id": "c-003",
-      "first_name": "Drew",
-      "last_name": "Blossman",
       "name": "Drew Blossman",
       "title": "VP, Digital Transformation & Innovation",
-      "linkedin_url": "https://www.linkedin.com/in/drewblossman/",
-      "email": "",
-      "photo_url": "",
-      "organization_name": "Centene Corporation",
-      "city": "St. Louis",
-      "state": "Missouri",
-      "departments": ["Information Technology", "Innovation"],
+      "linkedinUrl": "https://www.linkedin.com/in/drewblossman/",
       "seniority": "vp",
+      "department": "Information Technology",
       "tier": "champion",
-      "reasoning": "Leads digital transformation initiatives — would champion AI tools that accelerate innovation roadmap and member experience."
+      "reasoning": "Leads digital transformation initiatives \u2014 would champion AI tools that accelerate innovation roadmap and member experience."
     },
     {
-      "id": "c-004",
-      "first_name": "Robert",
-      "last_name": "Chen",
       "name": "Robert Chen",
       "title": "VP, Enterprise Architecture",
-      "linkedin_url": "https://www.linkedin.com/in/robertchen/",
-      "email": "",
-      "photo_url": "",
-      "organization_name": "Centene Corporation",
-      "city": "St. Louis",
-      "state": "Missouri",
-      "departments": ["Information Technology"],
+      "linkedinUrl": "https://www.linkedin.com/in/robertchen/",
       "seniority": "vp",
+      "department": "Information Technology",
       "tier": "champion",
-      "reasoning": "Owns the enterprise architecture and technology strategy — would influence platform selection and integration approach."
+      "reasoning": "Owns the enterprise architecture and technology strategy \u2014 would influence platform selection and integration approach."
     },
     {
-      "id": "c-005",
-      "first_name": "Jennifer",
-      "last_name": "Martinez",
       "name": "Jennifer Martinez",
       "title": "Director, Clinical Informatics",
-      "linkedin_url": "https://www.linkedin.com/in/jennifermartinez/",
-      "email": "",
-      "photo_url": "",
-      "organization_name": "Centene Corporation",
-      "city": "St. Louis",
-      "state": "Missouri",
-      "departments": ["Clinical", "Informatics"],
+      "linkedinUrl": "https://www.linkedin.com/in/jennifermartinez/",
       "seniority": "director",
+      "department": "Clinical",
       "tier": "evaluator",
       "reasoning": "Clinical informatics director would evaluate AI solutions for clinical use cases and ensure alignment with care delivery workflows."
     },
     {
-      "id": "c-006",
-      "first_name": "David",
-      "last_name": "Park",
       "name": "David Park",
       "title": "Director, Data Science & Machine Learning",
-      "linkedin_url": "https://www.linkedin.com/in/davidpark/",
-      "email": "",
-      "photo_url": "",
-      "organization_name": "Centene Corporation",
-      "city": "St. Louis",
-      "state": "Missouri",
-      "departments": ["Data & Analytics"],
+      "linkedinUrl": "https://www.linkedin.com/in/davidpark/",
       "seniority": "director",
+      "department": "Data & Analytics",
       "tier": "evaluator",
-      "reasoning": "Leads data science team — would technically evaluate AI capabilities, model performance, and integration requirements."
+      "reasoning": "Leads data science team \u2014 would technically evaluate AI capabilities, model performance, and integration requirements."
     },
     {
-      "id": "c-007",
-      "first_name": "Lisa",
-      "last_name": "Thompson",
       "name": "Lisa Thompson",
       "title": "VP, Information Security & Compliance",
-      "linkedin_url": "https://www.linkedin.com/in/lisathompson/",
-      "email": "",
-      "photo_url": "",
-      "organization_name": "Centene Corporation",
-      "city": "St. Louis",
-      "state": "Missouri",
-      "departments": ["Information Security"],
+      "linkedinUrl": "https://www.linkedin.com/in/lisathompson/",
       "seniority": "vp",
+      "department": "Information Security",
       "tier": "blocker",
-      "reasoning": "Security & compliance VP — will scrutinize HIPAA compliance, data handling, and security posture. Must be addressed early to avoid late-stage deal blockers."
+      "reasoning": "Security & compliance VP \u2014 will scrutinize HIPAA compliance, data handling, and security posture. Must be addressed early to avoid late-stage deal blockers."
     },
     {
-      "id": "c-008",
-      "first_name": "Michael",
-      "last_name": "Russo",
       "name": "Michael Russo",
       "title": "VP, Procurement & Vendor Management",
-      "linkedin_url": "https://www.linkedin.com/in/michaelrusso/",
-      "email": "",
-      "photo_url": "",
-      "organization_name": "Centene Corporation",
-      "city": "St. Louis",
-      "state": "Missouri",
-      "departments": ["Procurement"],
+      "linkedinUrl": "https://www.linkedin.com/in/michaelrusso/",
       "seniority": "vp",
+      "department": "Procurement",
       "tier": "blocker",
       "reasoning": "Controls vendor selection and contract negotiation. Can slow deals through procurement processes and existing vendor preferences."
     }
   ],
+  "suggested_titles": [],
   "signals": {
     "ai_strategy": [
       "Centene has invested heavily in AI/ML for claims processing automation, reducing manual review by 40%",
@@ -166,11 +103,11 @@
       "20+ open roles for data scientists and ML engineers on their careers page",
       "Hired new Chief Data & Analytics Officer in 2024, signaling leadership investment in data strategy",
       "Growing their clinical informatics team with focus on AI-assisted care management",
-      "New VP of Digital Transformation role filled — indicates active transformation program"
+      "New VP of Digital Transformation role filled \u2014 indicates active transformation program"
     ],
     "recent_news": [
       "Centene announced $1.2B technology modernization initiative spanning 2024-2026",
-      "Expanded Medicaid coverage to 28.5M members — scale creates massive data processing needs",
+      "Expanded Medicaid coverage to 28.5M members \u2014 scale creates massive data processing needs",
       "Partnered with major cloud provider for enterprise data lake migration",
       "CEO highlighted 'AI-first approach to member experience' in Q3 2024 earnings call",
       "Launched new digital-first health plan product leveraging AI for personalized care navigation"
@@ -185,16 +122,16 @@
   },
   "plan": {
     "executive_summary": "Centene Corporation represents a Tier 1 strategic account opportunity. As the nation's largest Medicaid managed care organization with 28M+ members and $154B in revenue, Centene is actively investing in AI to transform claims processing, member experience, and population health management.\n\nTheir $1.2B technology modernization initiative and newly established AI Center of Excellence signal executive commitment and allocated budget for AI solutions. The combination of massive data volume, regulatory complexity, and competitive pressure from other payers adopting AI creates a compelling window of opportunity.\n\nWith 74,000 employees and operations in all 50 states, even a modest initial deployment would represent significant ACV, with clear expansion potential across business units. The key is to enter through the digital transformation or data analytics teams and demonstrate value against their specific Medicaid/managed care use cases.",
-    "pain_product_fit": "1. CLAIMS PROCESSING VOLUME: Centene processes hundreds of millions of claims annually. AI-powered automation can reduce manual review rates, accelerate adjudication, and improve accuracy — directly impacting their largest cost center.\n\n2. MEMBER EXPERIENCE AT SCALE: With 28M+ members, many in underserved populations, Centene needs multilingual, accessible communication tools. AI can personalize member outreach, automate routine inquiries, and improve health literacy across diverse populations.\n\n3. PROVIDER NETWORK MANAGEMENT: Managing relationships with hundreds of thousands of providers requires intelligent tools for prior authorization, network adequacy analysis, and provider communication — all areas where AI excels.\n\n4. POPULATION HEALTH & RISK STRATIFICATION: AI/ML models can identify high-risk members early, predict care gaps, and optimize care management interventions across their massive Medicaid and Medicare populations.\n\n5. REGULATORY COMPLIANCE: Automated compliance monitoring, audit preparation, and regulatory reporting can reduce the massive administrative burden of operating in 50 state regulatory environments.",
+    "pain_product_fit": "1. CLAIMS PROCESSING VOLUME: Centene processes hundreds of millions of claims annually. AI-powered automation can reduce manual review rates, accelerate adjudication, and improve accuracy \u2014 directly impacting their largest cost center.\n\n2. MEMBER EXPERIENCE AT SCALE: With 28M+ members, many in underserved populations, Centene needs multilingual, accessible communication tools. AI can personalize member outreach, automate routine inquiries, and improve health literacy across diverse populations.\n\n3. PROVIDER NETWORK MANAGEMENT: Managing relationships with hundreds of thousands of providers requires intelligent tools for prior authorization, network adequacy analysis, and provider communication \u2014 all areas where AI excels.\n\n4. POPULATION HEALTH & RISK STRATIFICATION: AI/ML models can identify high-risk members early, predict care gaps, and optimize care management interventions across their massive Medicaid and Medicare populations.\n\n5. REGULATORY COMPLIANCE: Automated compliance monitoring, audit preparation, and regulatory reporting can reduce the massive administrative burden of operating in 50 state regulatory environments.",
     "competitive_threats": "- EXISTING VENDORS: Centene likely has relationships with Optum/UHG Analytics, IBM Watson Health, and Cognizant for data/analytics services. Displacement requires clear differentiation.\n- INTERNAL BUILD: Their AI Center of Excellence may prefer building in-house solutions on their existing ML platform. Position as an accelerator, not a replacement.\n- ALTERNATIVE PLATFORMS: Google Cloud Healthcare API, Microsoft Azure AI for Health, and AWS HealthLake are all competing for the infrastructure layer.\n- CONSULTING FIRMS: Deloitte, McKinsey, and Accenture all have healthcare AI practices actively pitching Centene. They may influence vendor selection.\n- BUILD VS. BUY: With 20+ data scientists on staff, Centene has internal capability. Must demonstrate clear time-to-value and TCO advantages over internal development.",
-    "timing_urgency": "Several factors make NOW the right time to engage Centene:\n\n1. BUDGET CYCLE: Their $1.2B tech modernization budget is being allocated in phases — getting in during the planning cycle is critical.\n2. NEW LEADERSHIP: New CDAO and VP of Digital Transformation are establishing their technology stack. New leaders want to make their mark with new vendor partnerships.\n3. REGULATORY PRESSURE: CMS interoperability mandates and Medicaid unwinding require new technology capabilities by specific deadlines.\n4. COMPETITIVE PRESSURE: UnitedHealth and Elevance are both publicizing AI investments — Centene can't afford to fall behind.\n5. SCALE INFLECTION: 28M+ members creates data volume that overwhelms traditional analytics — AI/ML is no longer optional, it's operational necessity.",
-    "deal_strategy": "PHASE 1 — WARM INTRODUCTION (Weeks 1-2):\n- Lead with Drew Blossman (VP Digital Transformation) as the entry point — innovation-minded, likely evaluating new technologies\n- Reference Centene's AI Center of Excellence and tech modernization initiative\n- Offer a complimentary account assessment showing specific use cases\n\nPHASE 2 — CHAMPION BUILDING (Weeks 3-4):\n- Conduct discovery sessions with Drew and Robert Chen (Enterprise Architecture)\n- Map specific pain points to product capabilities with quantified ROI\n- Get introduced to David Park's data science team for technical validation\n\nPHASE 3 — EXECUTIVE ENGAGEMENT (Weeks 5-8):\n- Present findings and business case to Kevin Basco (CIO) and Shannon Eusey (CDAO)\n- Address Lisa Thompson's security concerns proactively with compliance documentation\n- Propose a pilot scope tied to a specific use case (e.g., claims automation in one state)\n\nPHASE 4 — PILOT & EXPANSION (Months 3-6):\n- Execute pilot with clear success metrics\n- Build internal case study and ROI data\n- Expand to additional use cases and business units",
+    "timing_urgency": "Several factors make NOW the right time to engage Centene:\n\n1. BUDGET CYCLE: Their $1.2B tech modernization budget is being allocated in phases \u2014 getting in during the planning cycle is critical.\n2. NEW LEADERSHIP: New CDAO and VP of Digital Transformation are establishing their technology stack. New leaders want to make their mark with new vendor partnerships.\n3. REGULATORY PRESSURE: CMS interoperability mandates and Medicaid unwinding require new technology capabilities by specific deadlines.\n4. COMPETITIVE PRESSURE: UnitedHealth and Elevance are both publicizing AI investments \u2014 Centene can't afford to fall behind.\n5. SCALE INFLECTION: 28M+ members creates data volume that overwhelms traditional analytics \u2014 AI/ML is no longer optional, it's operational necessity.",
+    "deal_strategy": "PHASE 1 \u2014 WARM INTRODUCTION (Weeks 1-2):\n- Lead with Drew Blossman (VP Digital Transformation) as the entry point \u2014 innovation-minded, likely evaluating new technologies\n- Reference Centene's AI Center of Excellence and tech modernization initiative\n- Offer a complimentary account assessment showing specific use cases\n\nPHASE 2 \u2014 CHAMPION BUILDING (Weeks 3-4):\n- Conduct discovery sessions with Drew and Robert Chen (Enterprise Architecture)\n- Map specific pain points to product capabilities with quantified ROI\n- Get introduced to David Park's data science team for technical validation\n\nPHASE 3 \u2014 EXECUTIVE ENGAGEMENT (Weeks 5-8):\n- Present findings and business case to Kevin Basco (CIO) and Shannon Eusey (CDAO)\n- Address Lisa Thompson's security concerns proactively with compliance documentation\n- Propose a pilot scope tied to a specific use case (e.g., claims automation in one state)\n\nPHASE 4 \u2014 PILOT & EXPANSION (Months 3-6):\n- Execute pilot with clear success metrics\n- Build internal case study and ROI data\n- Expand to additional use cases and business units",
     "discovery_questions": [
       "How is the AI Center of Excellence structured, and what are its top 3 priorities for this year?",
       "What percentage of claims still require manual review, and what's the cost per manual review?",
       "How are you currently handling member communication across languages and literacy levels?",
-      "Where are you in the $1.2B tech modernization initiative — what's been funded vs. still in planning?",
-      "What's your current approach to predictive modeling for population health — in-house or vendor?",
+      "Where are you in the $1.2B tech modernization initiative \u2014 what's been funded vs. still in planning?",
+      "What's your current approach to predictive modeling for population health \u2014 in-house or vendor?",
       "How do you evaluate new AI vendors from a HIPAA and security perspective?",
       "What would success look like if you could automate 50% of a specific clinical or administrative workflow?",
       "How is the Medicaid unwinding affecting your technology needs and priorities?",
@@ -202,7 +139,7 @@
       "Who else is evaluating AI solutions internally, and how do you coordinate across business units?"
     ],
     "roi_framework": "HARD COST SAVINGS:\n- Claims automation: Reducing manual review from 30% to 15% across ~500M annual claims at $3-5/manual review = $225-375M annual savings potential\n- Member services automation: AI handling 40% of routine inquiries (est. 50M annual) saves $15-25/interaction = $300-500M annual savings\n- Fraud/waste/abuse: AI detection improving catch rate by 2% on $154B claims = $3.08B additional recovery\n\nSOFT VALUE:\n- Time-to-determination reduction for prior auth: from 5 days to <24 hours\n- Member satisfaction improvement: 15-25% NPS increase from personalized communication\n- Provider satisfaction: 30% reduction in administrative burden\n\nPILOT ROI MODEL:\n- 90-day pilot in single state (e.g., Texas Medicaid plan)\n- Focus on claims automation for one category\n- Target: 50% reduction in manual reviews, 3x ROI in pilot period\n- Success metric: cost-per-claim reduction and processing time improvement",
-    "first_touch_email": "Subject: Centene's AI Center of Excellence — Accelerating Your $1.2B Tech Modernization\n\nHi Drew,\n\nI've been following Centene's technology modernization initiative and the launch of your AI Center of Excellence. Scaling AI across 28M+ members in 50 states is one of the most ambitious programs in healthcare right now.\n\nWe've helped similar-scale payers reduce claims processing costs by 40% and cut prior auth turnaround from days to hours. Given your team's focus on digital transformation, I'd love to share what's working at that scale.\n\nWould a 20-minute call next week make sense? Happy to bring specific use cases relevant to Medicaid managed care.\n\nBest,\nYuvraj"
+    "first_touch_email": "Subject: Centene's AI Center of Excellence \u2014 Accelerating Your $1.2B Tech Modernization\n\nHi Drew,\n\nI've been following Centene's technology modernization initiative and the launch of your AI Center of Excellence. Scaling AI across 28M+ members in 50 states is one of the most ambitious programs in healthcare right now.\n\nWe've helped similar-scale payers reduce claims processing costs by 40% and cut prior auth turnaround from days to hours. Given your team's focus on digital transformation, I'd love to share what's working at that scale.\n\nWould a 20-minute call next week make sense? Happy to bring specific use cases relevant to Medicaid managed care.\n\nBest,\nYuvraj"
   },
   "fit_score": [
     {
@@ -213,7 +150,7 @@
     {
       "dimension": "Budget Capacity",
       "score": 10,
-      "reasoning": "$154B revenue with dedicated technology modernization budget — no budget constraints for the right solution."
+      "reasoning": "$154B revenue with dedicated technology modernization budget \u2014 no budget constraints for the right solution."
     },
     {
       "dimension": "Technical Readiness",

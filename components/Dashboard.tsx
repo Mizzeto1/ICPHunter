@@ -297,7 +297,7 @@ export default function Dashboard({ config }: DashboardProps) {
           <div className="space-y-6 animate-fade-in">
             <CompanyOverview org={result.organization} />
             <SignalsPanel signals={result.signals} />
-            <HierarchyMap contacts={result.contacts} />
+            <HierarchyMap contacts={result.contacts} suggestedTitles={result.suggested_titles || []} />
 
             {/* Account Plan */}
             <div className="rounded-xl border border-dark-700 bg-dark-900 p-6">

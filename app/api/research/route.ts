@@ -17,6 +17,7 @@ import {
   AccountPlan,
   FitDimension,
   CategorizedContact,
+  SuggestedTitle,
   ApolloOrganization,
   ApolloContact,
   CompanyConfig,
@@ -38,6 +39,39 @@ function parseSignals(raw: string): AISignals {
   }
 }
 
+function emptyOrg(name: string): ApolloOrganization {
+  return {
+    id: "",
+    name,
+    website_url: "",
+    domain: "",
+    industry: "Healthcare",
+    estimated_num_employees: 0,
+    annual_revenue_printed: "N/A",
+    short_description: "",
+    logo_url: "",
+    founded_year: 0,
+    linkedin_url: "",
+    phone: "",
+    city: "",
+    state: "",
+    country: "",
+  };
+}
+
+function emptyPlan(): AccountPlan {
+  return {
+    executive_summary: "Plan generation failed — please retry.",
+    pain_product_fit: "",
+    competitive_threats: "",
+    timing_urgency: "",
+    deal_strategy: "",
+    discovery_questions: [],
+    roi_framework: "",
+    first_touch_email: "",
+  };
+}
+
 async function generateWebOnlyPlan(
   companyName: string,
   config: CompanyConfig
@@ -53,22 +87,20 @@ async function generateWebOnlyPlan(
 
   let plan: AccountPlan;
   let fitScore: FitDimension[];
+  let suggestedTitles: SuggestedTitle[];
   try {
-    const parsed = parseJSON<{ plan: AccountPlan; fit_score: FitDimension[] }>(planRaw);
+    const parsed = parseJSON<{
+      suggested_titles: SuggestedTitle[];
+      plan: AccountPlan;
+      fit_score: FitDimension[];
+    }>(planRaw);
     plan = parsed.plan;
     fitScore = parsed.fit_score;
+    suggestedTitles = parsed.suggested_titles || [];
   } catch {
-    plan = {
-      executive_summary: "Plan generation failed — please retry.",
-      pain_product_fit: "",
-      competitive_threats: "",
-      timing_urgency: "",
-      deal_strategy: "",
-      discovery_questions: [],
-      roi_framework: "",
-      first_touch_email: "",
-    };
+    plan = emptyPlan();
     fitScore = [];
+    suggestedTitles = [];
   }
 
   const overallScore =
@@ -76,27 +108,10 @@ async function generateWebOnlyPlan(
       ? Math.round(fitScore.reduce((sum, f) => sum + f.score, 0) / fitScore.length)
       : 0;
 
-  const fallbackOrg: ApolloOrganization = {
-    id: "",
-    name: companyName,
-    website_url: "",
-    domain: "",
-    industry: "Healthcare",
-    estimated_num_employees: 0,
-    annual_revenue_printed: "N/A",
-    short_description: "",
-    logo_url: "",
-    founded_year: 0,
-    linkedin_url: "",
-    phone: "",
-    city: "",
-    state: "",
-    country: "",
-  };
-
   const result: ResearchResult = {
-    organization: fallbackOrg,
+    organization: emptyOrg(companyName),
     contacts: [],
+    suggested_titles: suggestedTitles,
     signals,
     plan,
     fit_score: fitScore,
@@ -134,9 +149,10 @@ export async function POST(request: NextRequest) {
     }
 
     // STEP 2: Run in parallel — contacts by domain + web research signals
-    const allTitles = Array.from(
-      new Set([...config.targetTitles.payer, ...config.targetTitles.provider])
-    );
+    const allTitles = [
+      ...config.targetTitles.payer,
+      ...config.targetTitles.provider,
+    ];
 
     const [contacts, signalsRaw] = await Promise.all([
       searchApolloContacts(apolloCompany.domain, allTitles),
@@ -153,19 +169,22 @@ export async function POST(request: NextRequest) {
     let plan: AccountPlan;
     let fitScore: FitDimension[];
     let categorizedContacts: CategorizedContact[];
+    let suggestedTitles: SuggestedTitle[];
 
     try {
       const parsed = parseJSON<{
         contacts: { name: string; tier: string; reasoning: string }[];
+        suggested_titles: SuggestedTitle[];
         plan: AccountPlan;
         fit_score: FitDimension[];
       }>(synthesisRaw);
 
       plan = parsed.plan;
       fitScore = parsed.fit_score;
+      suggestedTitles = parsed.suggested_titles || [];
 
       const categoryMap = new Map(
-        parsed.contacts.map((c) => [c.name, { tier: c.tier, reasoning: c.reasoning }])
+        (parsed.contacts || []).map((c) => [c.name, { tier: c.tier, reasoning: c.reasoning }])
       );
 
       categorizedContacts = contacts.map((contact: ApolloContact) => {
@@ -177,17 +196,9 @@ export async function POST(request: NextRequest) {
         };
       });
     } catch {
-      plan = {
-        executive_summary: "Plan generation failed — please retry.",
-        pain_product_fit: "",
-        competitive_threats: "",
-        timing_urgency: "",
-        deal_strategy: "",
-        discovery_questions: [],
-        roi_framework: "",
-        first_touch_email: "",
-      };
+      plan = emptyPlan();
       fitScore = [];
+      suggestedTitles = [];
       categorizedContacts = contacts.map((c: ApolloContact) => ({
         ...c,
         tier: "evaluator" as const,
@@ -203,6 +214,7 @@ export async function POST(request: NextRequest) {
     const result: ResearchResult = {
       organization: apolloCompany,
       contacts: categorizedContacts,
+      suggested_titles: suggestedTitles,
       signals,
       plan,
       fit_score: fitScore,
